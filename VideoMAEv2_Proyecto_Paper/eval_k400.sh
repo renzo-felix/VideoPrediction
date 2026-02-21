@@ -1,10 +1,10 @@
 #!/bin/bash
-#SBATCH --job-name=eval_ssv2
-#SBATCH --output=logs/eval_ssv2_%j.out
-#SBATCH --error=logs/eval_ssv2_%j.err
+#SBATCH --job-name=eval_k400
+#SBATCH --output=logs/eval_k400_%j.out
+#SBATCH --error=logs/eval_k400_%j.err
 #SBATCH --partition=gpu
-#SBATCH --account=a-investigacion1   # <--- Tu cuenta de investigacion
-#SBATCH --time=4-00:00:00            # <--- Pidiendo los 4 dias maximos
+#SBATCH --account=a-investigacion1
+#SBATCH --time=4-00:00:00
 #SBATCH --gres=shard:1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
@@ -19,12 +19,12 @@ export SLURM_NTASKS=1
 OMP_NUM_THREADS=1 torchrun --nproc_per_node=1 \
     run_class_finetuning.py \
     --model vit_giant_patch14_224 \
-    --data_set SSV2 \
-    --nb_classes 174 \
-    --data_path dataset/ssv2_luis/labels/sthv2 \
-    --data_root dataset/ssv2_luis \
-    --finetune checkpoints/vit_g_hybrid_pt_1200e_ssv2_ft.pth \
-    --log_dir output_dir/ssv2_eval \
+    --data_set Kinetics-400 \
+    --nb_classes 400 \
+    --data_path dataset/k400_luis/labels/val.csv \
+    --data_root dataset/k400_luis/k400 \
+    --finetune checkpoints/vit_g_hybrid_pt_1200e_k400_ft.pth \
+    --log_dir output_dir/k400_eval \
     --batch_size 4 \
     --num_sample 1 \
     --input_size 224 \
