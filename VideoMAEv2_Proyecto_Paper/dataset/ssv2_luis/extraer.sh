@@ -1,7 +1,7 @@
 #!/bin/bash
 # Buscamos los videos (tar suele crear esta subcarpeta "20bn-something-something-v2" al extraer)
 SRC="video/20bn-something-something-v2"
-DST="frames"
+DST="SomethingV2"
 
 mkdir -p $DST
 
@@ -10,7 +10,7 @@ for video in $SRC/*.webm; do
     filename=$(basename -- "$video")
     dirname="${filename%.*}"
 
-    # Creamos una subcarpeta para cada video dentro de "frames/"
+    # Creamos una subcarpeta para cada video dentro de "SomethingV2/"
     mkdir -p "$DST/$dirname"
 
     # Convertimos el video a imagenes img_00001.jpg, img_00002.jpg, etc.
