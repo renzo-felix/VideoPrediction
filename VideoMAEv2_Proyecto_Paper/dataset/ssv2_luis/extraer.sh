@@ -10,27 +10,25 @@
 #SBATCH --mem=16G
 #SBATCH --time=08:00:00
 
+module load miniconda/3.0
+eval "$(conda shell.bash hook)"
+conda activate videomae_luis_izaguirre
+
 SRC="videos"
 DST="SomethingV2"
-
 mkdir -p $DST
-echo "Iniciando búsqueda en: $SRC"
 
-# Buscamos videos. Si no encuentra nada, el log te lo dirá.
-FILES=$(find "$SRC" -name "*.webm")
+echo "Iniciando extracción paralela en: $SRC"
 
-if [ -z "$FILES" ]; then
-    echo "ERROR: No se encontraron archivos .webm en $SRC"
-    exit 1
-fi
-
-echo "$FILES" | while read video; do
+# Buscamos los videos y los pasamos a xargs para procesar 16 a la vez (-P 16)
+find "$SRC" -name "*.webm" | xargs -I {} -P 16 bash -c '
+    video="{}"
     filename=$(basename -- "$video")
     dirname="${filename%.*}"
-    echo "Procesando: $filename"
-
-    mkdir -p "$DST/$dirname"
-    ffmpeg -i "$video" -vf scale=-1:256 -q:v 1 "$DST/$dirname/img_%05d.jpg" -nostats -loglevel error < /dev/null
-done
+    mkdir -p "SomethingV2/$dirname"
+    
+    # Extraer frames de forma silenciosa
+    ffmpeg -i "$video" -vf scale=-1:256 -q:v 1 "SomethingV2/$dirname/img_%05d.jpg" -nostats -loglevel error < /dev/null
+'
 
 echo "Proceso finalizado."

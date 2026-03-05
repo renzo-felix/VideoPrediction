@@ -1,15 +1,53 @@
-# Ignorar archivos especificos
-VideoMAEv2_Proyecto_Paper/dataset/ssv2_luis/20bn-something-something-v2-00
-VideoMAEv2_Proyecto_Paper/dataset/ssv2_luis/20bn-something-something-v2-01
+# ========================
+# Entorno de Python
+# ========================
+# Archivos compilados (esto evitará que se suban los .pyc problemáticos)
+__pycache__/
+*.py[cod]
+*$py.class
 
-# Ignorar archivos de video por extensión
+# Entornos Virtuales
+venv/
+.env/
+env/
+.venv/
+.conda/
+
+# ========================
+# Machine Learning y Modelos
+# ========================
+# Pesos y checkpoints que suelen pesar gigabytes
+*.pth
+*.pt
+checkpoints/
+
+# ========================
+# Archivos específicos del Proyecto
+# ========================
+# Archivos split de la descarga original
+VideoMAEv2_Proyecto_Paper/dataset/ssv2_luis/20bn-something-something-v2-*
+
+# Carpetas extensas de frames y videos
+dataset/ssv2_luis/videos/
+dataset/ssv2_luis/SomethingV2/
+VideoMAEv2_Proyecto_Paper/dataset/ssv2_luis/SomethingV2/
+
+# Archivos comprimidos o binarios grandes de video
 *.webm
 *.zip
 *.tar
 *.gz
 
-# Ignorar carpetas completas de datos (Más eficiente)
-dataset/ssv2_luis/videos/
-dataset/ssv2_luis/SomethingV2/
+# ========================
+# Logs y Outputs de ejecuciones
+# ========================
 logs/
 output_dir/
+VideoMAEv2_Proyecto_Paper/logs/
+VideoMAEv2_Proyecto_Paper/output_dir/
+
+# ========================
+# Configuraciones locales de IDEs / Editores de Código
+# ========================
+.vscode/
+.idea/
