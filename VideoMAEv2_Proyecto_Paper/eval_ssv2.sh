@@ -3,8 +3,9 @@
 #SBATCH --output=logs/eval_ssv2_%j.out
 #SBATCH --error=logs/eval_ssv2_%j.err
 #SBATCH --partition=gpu
-#SBATCH --account=a-investigacion1   # <--- Tu cuenta de investigacion
-#SBATCH --time=4-00:00:00            # <--- Pidiendo los 4 dias maximos
+#SBATCH --account=investigacion1     
+#SBATCH --qos=a-investigacion1
+#SBATCH --time=4-00:00:00               
 #SBATCH --gres=shard:1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8

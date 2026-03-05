@@ -1,0 +1,15 @@
+# Ignorar archivos especificos
+VideoMAEv2_Proyecto_Paper/dataset/ssv2_luis/20bn-something-something-v2-00
+VideoMAEv2_Proyecto_Paper/dataset/ssv2_luis/20bn-something-something-v2-01
+
+# Ignorar archivos de video por extensión
+*.webm
+*.zip
+*.tar
+*.gz
+
+# Ignorar carpetas completas de datos (Más eficiente)
+dataset/ssv2_luis/videos/
+dataset/ssv2_luis/SomethingV2/
+logs/
+output_dir/

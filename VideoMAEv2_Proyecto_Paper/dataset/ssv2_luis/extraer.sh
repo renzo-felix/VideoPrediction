@@ -1,18 +1,36 @@
 #!/bin/bash
-# Buscamos los videos (tar suele crear esta subcarpeta "20bn-something-something-v2" al extraer)
-SRC="video/20bn-something-something-v2"
+#SBATCH --job-name=extraer_ssv2
+#SBATCH --output=logs/extraer_%j.out
+#SBATCH --error=logs/extraer_%j.err
+#SBATCH --partition=standard
+#SBATCH --account=investigacion1     
+#SBATCH --qos=a-investigacion1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=16G
+#SBATCH --time=08:00:00
+
+SRC="videos"
 DST="SomethingV2"
 
 mkdir -p $DST
+echo "Iniciando búsqueda en: $SRC"
 
-# Bucle para extraer frames de cada video
-for video in $SRC/*.webm; do
+# Buscamos videos. Si no encuentra nada, el log te lo dirá.
+FILES=$(find "$SRC" -name "*.webm")
+
+if [ -z "$FILES" ]; then
+    echo "ERROR: No se encontraron archivos .webm en $SRC"
+    exit 1
+fi
+
+echo "$FILES" | while read video; do
     filename=$(basename -- "$video")
     dirname="${filename%.*}"
+    echo "Procesando: $filename"
 
-    # Creamos una subcarpeta para cada video dentro de "SomethingV2/"
     mkdir -p "$DST/$dirname"
-
-    # Convertimos el video a imagenes img_00001.jpg, img_00002.jpg, etc.
-    ffmpeg -i "$video" -vf scale=-1:256 -q:v 1 "$DST/$dirname/img_%05d.jpg" < /dev/null
+    ffmpeg -i "$video" -vf scale=-1:256 -q:v 1 "$DST/$dirname/img_%05d.jpg" -nostats -loglevel error < /dev/null
 done
+
+echo "Proceso finalizado."
