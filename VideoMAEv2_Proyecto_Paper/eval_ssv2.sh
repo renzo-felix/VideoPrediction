@@ -11,11 +11,15 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32G
 
-module load cuda
-source ~/miniconda3/etc/profile.d/conda.sh
+module load cuda/11.8
+module load miniconda/3.0
+eval "$(conda shell.bash hook)"
 conda activate videomae_luis_izaguirre
 
 export SLURM_NTASKS=1
+
+# Create symlink for frames to match CSV paths (SomethingV2/frames -> SomethingV2)
+ln -sfn . dataset/ssv2_luis/SomethingV2/frames
 
 OMP_NUM_THREADS=1 torchrun --nproc_per_node=1 \
     run_class_finetuning.py \
@@ -32,5 +36,6 @@ OMP_NUM_THREADS=1 torchrun --nproc_per_node=1 \
     --short_side_size 224 \
     --num_frames 16 \
     --sampling_rate 4 \
+    --num_workers 8 \
     --eval \
     --dist_eval
