@@ -26,6 +26,9 @@ checkpoints/
 # ========================
 # Archivos split de la descarga original
 VideoMAEv2_Proyecto_Paper/dataset/ssv2_luis/20bn-something-something-v2-*
+# Otros archivos
+VideoMAEv2_Proyecto_Paper/0.txt
+VideoMAEv2_Proyecto_Paper/k400
 
 # Carpetas extensas de frames y videos
 dataset/ssv2_luis/videos/
