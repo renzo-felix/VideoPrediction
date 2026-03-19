@@ -191,7 +191,7 @@ Los experimentos se ejecutan en el clúster **Khipu** de UTEC utilizando el sist
 
 - [VideoMAEv2 – Paper (arXiv)](https://arxiv.org/abs/2303.16727)
 - [VideoMAEv2 – Repositorio oficial](https://github.com/OpenGVLab/VideoMAEv2)
-- [V-JEPA 2 – Meta AI Research](https://ai.meta.com/research/publications/v-jepa-2/)
+- [V-JEPA 2 – Meta AI Research](https://ai.meta.com/research/vjepa/)
 - [VideoMAEv2 – Pesos en Hugging Face](https://huggingface.co/OpenGVLab/VideoMAE2)
 
 ---
