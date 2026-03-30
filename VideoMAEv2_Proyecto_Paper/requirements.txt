@@ -15,3 +15,11 @@ timm==0.4.12
 # torchaudio
 # torchvision
 # triton==1.0.0
+
+# ---- Dependencias añadidas para Interpretabilidad Mecanicista ----
+scikit-learn
+wandb
+umap-learn
+imageio
+ffmpeg-python
+seaborn

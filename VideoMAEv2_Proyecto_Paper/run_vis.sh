@@ -1,30 +1,39 @@
 #!/bin/bash
-#SBATCH --job-name=visualizar_attn
-#SBATCH --partition=gpu
+#SBATCH --partition=data-science
 #SBATCH --gres=gpu:1
+#SBATCH --job-name=videomae_vis
+#SBATCH --output=logs/%x_%j.out
+#SBATCH --error=logs/%x_%j.err
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=10
-#SBATCH --mem=40G
-#SBATCH --time=00:30:00
-#SBATCH --output=logs/vis_%j.out
-#SBATCH --error=logs/vis_%j.err
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=32G
+#SBATCH --account=investigacion1
+#SBATCH --qos=a-investigacion1
+#SBATCH --time=4-00:00:00
 
-source ~/miniconda3/etc/profile.d/conda.sh
-module purge
-module load gnu9/9.4.0
+# ============================================================================
+# run_vis.sh
+# Renderiza el clustering evolutivo usando UMAP + PCA sobre activaciones previas.
+# Requiere que run_probing.sh haya generado "output_dir/activations.npz".
+# ============================================================================
+
 module load cuda/11.8
+module load miniconda/3.0
+eval "$(conda shell.bash hook)"
+conda activate videomae_luis_izaguirre
 
-export CUDA_HOME="/opt/ohpc/pub/compiler/cuda/11.8.0"
-export PATH="${CUDA_HOME}/bin:${PATH}"
-export LD_LIBRARY_PATH="${CUDA_HOME}/lib64:${LD_LIBRARY_PATH}"
+export CPATH=$CONDA_PREFIX/include:$CPATH
+export LIBRARY_PATH=$CONDA_PREFIX/lib:$LIBRARY_PATH
 
-PYTHON_EXEC="/home/renzo.felix/miniconda3/envs/lab1/bin/python"
-export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python
-export TRITON_CACHE_DIR="/tmp/triton_cache_$USER"
-mkdir -p $TRITON_CACHE_DIR
+mkdir -p logs
 
-# --- CRÍTICO: Ir a la carpeta ---
-cd /home/renzo.felix/Luis/VideoMAEv2_Proyecto_Paper
+echo "=========================================="
+echo "Clustering Animado sobre VideoMAEv2 ViT-Giant"
+echo "Fecha: $(date)"
+echo "Nodo: $(hostname)"
+echo "=========================================="
 
-echo "Iniciando visualización..."
-$PYTHON_EXEC visualizar_atencion.py
+python -u visualize_clustering_evolution.py
+
+echo ""
+echo "Script finalizado: $(date)"

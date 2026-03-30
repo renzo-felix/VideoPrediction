@@ -7,7 +7,9 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32G
-#SBATCH --time=1-00:00:00
+#SBATCH --account=investigacion1
+#SBATCH --qos=a-investigacion1
+#SBATCH --time=4-00:00:00
 
 # ============================================================================
 # run_probing.sh
@@ -45,7 +47,7 @@ echo "GPU: $(nvidia-smi --query-gpu=name --format=csv,noheader)"
 echo "Checkpoint: $CHECKPOINT"
 echo "=========================================="
 
-python run_layer_probing.py \
+python -u run_layer_probing.py \
     --checkpoint "$CHECKPOINT" \
     --csv physical_diagnostics.csv \
     --data_root dataset/ssv2_luis \
