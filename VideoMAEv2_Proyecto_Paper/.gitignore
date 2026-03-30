@@ -1,0 +1,33 @@
+# Weights & Biases (W&B)
+wandb/
+latest-run
+debug*.log
+debug-internal.log
+debug-cli.*.log
+
+# Slurm Logs
+logs/
+*.out
+*.err
+
+# Python & Entornos
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.coverage
+venv/
+env/
+.env
+
+# MacOS / OS
+.DS_Store
+
+# Datos del proyecto local (evitar subir Gigabytes a GitHub)
+output_dir/
+*.npz
+physical_diagnostics.csv
+dataset/
+
+# Si hay algún checkpoint local
+checkpoints/
