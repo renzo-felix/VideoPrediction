@@ -113,9 +113,10 @@ def load_video_frames(video_dir: str, num_frames: int = 16, size: int = 224) -> 
     frames = []
     for idx in indices:
         frame_path = os.path.join(video_dir, frame_files[idx])
-        img = Image.open(frame_path).convert("RGB")
-        # transform: [3, 224, 224]
-        frames.append(transform(img))
+        with Image.open(frame_path) as img:
+            rgb_img = img.convert("RGB")
+            # transform: [3, 224, 224]
+            frames.append(transform(rgb_img))
 
     # frames: lista de [3, 224, 224] → stack → [num_frames, 3, 224, 224]
     video_tensor = torch.stack(frames, dim=0)
@@ -244,12 +245,17 @@ def extract_all_activations(
                 if name not in all_pooled:
                     all_pooled[name] = []
                 # tensor: [1, 1408] → squeeze → [1408]
-                all_pooled[name].append(tensor.squeeze(0).numpy())
+                all_pooled[name].append(tensor.squeeze(0).numpy().copy())
 
             all_labels.append(entry["speed_label"])
 
             # 5. Limpiar activaciones para el siguiente video
             extractor.clear_activations()
+            del video_tensor
+            
+            if (i + 1) % 50 == 0:
+                import gc
+                gc.collect()
 
         except Exception as e:
             errors += 1
@@ -432,7 +438,7 @@ def main():
     print(f"Device: {device}")
     if device.type == "cuda":
         print(f"  GPU: {torch.cuda.get_device_name(0)}")
-        print(f"  VRAM: {torch.cuda.get_device_properties(0).total_mem / 1e9:.1f} GB")
+        print(f"  VRAM: {torch.cuda.get_device_properties(0).total_memory / 1e9:.1f} GB")
 
     # 1. Cargar modelo
     model = load_model(args.checkpoint, device)
@@ -467,7 +473,22 @@ def main():
     if device.type == "cuda":
         torch.cuda.empty_cache()
 
-    # 5. Entrenar Linear Probes
+    # 5. Guardar activaciones en disco (para el visualizador de clustering)
+    os.makedirs(args.output_dir, exist_ok=True)
+    save_path = os.path.join(args.output_dir, "activations.npz")
+    print(f"\n[INFO] Guardando matriz de activaciones en disco ({save_path})...")
+    
+    save_dict = {}
+    for name, data in activations_dict.items():
+        save_dict[f"{name}_features"] = data["features"]
+    # Tomamos las labels de cualquiera (son idénticas)
+    save_dict["labels"] = list(activations_dict.values())[0]["labels"]
+    
+    # Usamos np.savez_compressed para compresión zlib (más ligereza en disco)
+    np.savez_compressed(save_path, **save_dict)
+    print("✅ Activaciones extraídas y guardadas con éxito.")
+
+    # 6. Entrenar Linear Probes
     print(f"\nEntrenando Linear Probes ({len(activations_dict)} combinaciones)...")
     results = train_probes(activations_dict)
 
