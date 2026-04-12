@@ -51,15 +51,12 @@ echo "GPU:  $(nvidia-smi --query-gpu=name --format=csv,noheader)"
 echo "Checkpoint: $CHECKPOINT"
 echo "=========================================="
 
-# data_root: carpeta que contiene los frames de SSv2.
-# El physical_diagnostics.csv tiene rutas como "SomethingV2/frames/34899"
-# → data_root debe ser la carpeta PADRE de "SomethingV2/"
-# Si tus frames están en /home/renzo.felix/VideoPrediction/vjepa2/data/ssv2/SomethingV2/frames/
-# entonces data_root = /home/renzo.felix/VideoPrediction/vjepa2/data/ssv2
-# Ajustar según donde estén extraídos los frames:
-DATA_ROOT="/home/renzo.felix/VideoPrediction/vjepa2/data/ssv2"
+# Videos SSv2 en formato .webm
+# physical_diagnostics.csv tiene paths tipo "SomethingV2/frames/34899"
+# → el script extrae el ID (34899) y busca DATA_ROOT/34899.webm
+DATA_ROOT="/home/renzo.felix/VideoPrediction/vjepa2/data/ssv2/videos/20bn-something-something-v2"
 
-# physical_diagnostics.csv es el proxy de velocidad de Luis (SSv2)
+# CSV con speed labels de Luis
 CSV_PATH="/home/renzo.felix/Luis/VideoMAEv2_Proyecto_Paper/physical_diagnostics.csv"
 
 python -u run_vjepa2_layer_probing.py \
@@ -69,7 +66,7 @@ python -u run_vjepa2_layer_probing.py \
     --num_frames 16 \
     --csv "$CSV_PATH" \
     --data_root "$DATA_ROOT" \
-    --video_format frames \
+    --video_format webm \
     --output_dir output_dir/vjepa2_vitl_ssv2 \
     --wandb_project vjepa2_probing \
     --wandb_run_name "vjepa2_vitl_ssv2_speed"

@@ -272,6 +272,33 @@ def load_diagnostic_csv(csv_path: str) -> list:
 # ============================================================================
 # Extracción de activaciones
 # ============================================================================
+def resolve_video_path(data_root: str, csv_path: str, video_format: str) -> str:
+    """
+    Convierte la ruta del CSV al path real del video en disco.
+
+    El physical_diagnostics.csv de Luis tiene rutas como "SomethingV2/frames/34899"
+    (formato de frames extraídos). Si los videos son .webm/.mp4, extraemos el ID
+    del último componente y construimos la ruta real.
+
+    Ejemplos:
+      csv_path="SomethingV2/frames/34899", video_format="webm"
+      → /home/.../videos/20bn-something-something-v2/34899.webm
+
+      csv_path="SomethingV2/frames/34899", video_format="frames"
+      → /home/.../SomethingV2/frames/34899  (directorio de imágenes)
+
+      csv_path="train/abc123.mp4", video_format="mp4"
+      → /home/.../train/abc123.mp4  (path directo)
+    """
+    if video_format in ("webm", "mp4"):
+        # Extraer solo el ID numérico (último componente del path del CSV)
+        video_id = os.path.basename(csv_path)
+        return os.path.join(data_root, f"{video_id}.{video_format}")
+    else:
+        # Frames: usar el path del CSV tal cual
+        return os.path.join(data_root, csv_path)
+
+
 def extract_all_activations(
     model: nn.Module,
     extractor: VJEPA2ActivationExtractor,
@@ -280,14 +307,16 @@ def extract_all_activations(
     num_frames: int,
     img_size: int,
     device: torch.device,
-    video_format: str = "frames",
+    video_format: str = "webm",
     max_videos: int = None,
 ) -> dict:
     """
     Extrae activaciones layer-wise para todos los videos del CSV.
 
     Args:
-        video_format: "frames" para SSv2 (directorio de imágenes) o "mp4" para K400.
+        video_format: "webm" para SSv2 (videos .webm via decord),
+                      "mp4" para K400 (videos .mp4 via decord),
+                      "frames" para directorios de imágenes.
         max_videos: Limitar cantidad de videos (útil para debug).
 
     Returns:
@@ -303,16 +332,18 @@ def extract_all_activations(
     errors = 0
 
     for i, entry in enumerate(entries):
-        video_path = os.path.join(data_root, entry["video_path"])
+        video_path = resolve_video_path(data_root, entry["video_path"], video_format)
 
         if (i + 1) % 50 == 0 or i == 0:
             print(f"  [{i+1}/{total}] {entry['video_path']}")
 
         try:
             # Cargar video → [C, T, H, W]
+            # webm y mp4 usan decord (mismo loader), frames usa PIL
             if video_format == "frames":
                 video_tensor = load_video_frames_from_dir(video_path, num_frames, img_size)
             else:
+                # decord maneja .webm y .mp4 igual
                 video_tensor = load_video_frames_from_mp4(video_path, num_frames, img_size)
 
             # Añadir dim de batch → [1, C, T, H, W]
