@@ -34,7 +34,7 @@ MÉTRICAS:
 
 USO:
   python causal_patching_experiment.py \
-      --checkpoint checkpoints/vit_g_hybrid_pt_1200e_ssv2_ft.pth \
+      --checkpoint /home/projects/video-prediction/checkpoints/videomaev2/vit_g_hybrid_pt_1200e_ssv2_ft.pth \
       --csv physical_diagnostics.csv \
       --num_pairs 50 \
       --wandb_project videomae_probing
@@ -219,7 +219,7 @@ class ActivationPatcher:
 def main():
     parser = argparse.ArgumentParser(description="Activation Patching causal")
     parser.add_argument("--checkpoint", type=str,
-                        default="checkpoints/vit_g_hybrid_pt_1200e_ssv2_ft.pth")
+                        default="/home/projects/video-prediction/checkpoints/videomaev2/vit_g_hybrid_pt_1200e_ssv2_ft.pth")
     parser.add_argument("--csv", type=str, default="physical_diagnostics.csv")
     parser.add_argument("--data_root", type=str, default="dataset/ssv2_luis")
     parser.add_argument("--num_frames", type=int, default=16)

@@ -21,7 +21,7 @@ except ImportError:
 from torchvision import transforms
 
 # --- CONFIGURACIÓN ---
-MODEL_PATH = os.path.join(project_path, 'checkpoints/checkpoints/vit_b_k710_dl_from_giant.pth')
+MODEL_PATH = '/home/projects/video-prediction/checkpoints/videomaev2/vit_b_k710_dl_from_giant.pth'
 VIDEO_PATH = os.path.join(project_path, 'data/k710/video_test.mp4')
 OUTPUT_IMAGE = 'mapa_atencion_didgeridoo.jpg'
 

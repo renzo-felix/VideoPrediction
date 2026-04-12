@@ -36,7 +36,7 @@ from PIL import Image
 
 # --- CONFIGURACIÓN ---
 # Usamos las mismas rutas que ya sabemos que funcionan
-MODEL_PATH = '/home/renzo.felix/Luis/VideoMAEv2_Proyecto_Paper/checkpoints/checkpoints/vit_b_k710_dl_from_giant.pth'
+MODEL_PATH = '/home/projects/video-prediction/checkpoints/videomaev2/vit_b_k710_dl_from_giant.pth'
 VIDEO_PATH = '/home/renzo.felix/Luis/VideoMAEv2_Proyecto_Paper/data/k710/video_test.mp4'
 SAVE_PATH = 'features_extraidos.npy'
 
