@@ -54,13 +54,10 @@ except ImportError:
 # ── Carga de video ────────────────────────────────────────────────────────────
 
 def load_video(path: str, num_frames: int, img_size: int) -> torch.Tensor:
-    """Carga .webm / .mp4 con decord → [C, T, H, W] normalizado ImageNet."""
-    from decord import VideoReader
+    """Carga .webm / .mp4 → [C, T, H, W] normalizado ImageNet.
+    Intenta decord (num_threads=1) primero; fallback a cv2 si falla.
+    """
     from torchvision import transforms
-
-    vr = VideoReader(path)
-    idx = np.linspace(0, len(vr) - 1, num_frames, dtype=int)
-    frames_np = vr.get_batch(idx).asnumpy()          # [T, H, W, C]
 
     tf = transforms.Compose([
         transforms.Resize(int(256.0/224*img_size), interpolation=transforms.InterpolationMode.BICUBIC),
@@ -68,7 +65,57 @@ def load_video(path: str, num_frames: int, img_size: int) -> torch.Tensor:
         transforms.ToTensor(),
         transforms.Normalize(mean=IMAGENET_MEAN, std=IMAGENET_STD),
     ])
-    frames = [tf(Image.fromarray(frames_np[i])) for i in range(frames_np.shape[0])]
+
+    # ── Intento 1: decord con un solo thread (evita EAGAIN en .webm) ──────────
+    try:
+        from decord import VideoReader, cpu as decord_cpu
+        vr = VideoReader(path, ctx=decord_cpu(0), num_threads=1)
+        idx = np.linspace(0, len(vr) - 1, num_frames, dtype=int)
+        frames_np = vr.get_batch(idx).asnumpy()          # [T, H, W, C]
+        frames = [tf(Image.fromarray(frames_np[i])) for i in range(frames_np.shape[0])]
+        return torch.stack(frames).permute(1, 0, 2, 3)   # [C, T, H, W]
+    except Exception:
+        pass
+
+    # ── Fallback: cv2.VideoCapture ────────────────────────────────────────────
+    import cv2
+    cap = cv2.VideoCapture(path)
+    if not cap.isOpened():
+        raise IOError(f"No se pudo abrir el video: {path}")
+
+    total = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+    if total <= 0:
+        # Algunos .webm no reportan frame count; leemos todos y submuestreamos
+        raw = []
+        while True:
+            ret, frame = cap.read()
+            if not ret:
+                break
+            raw.append(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+        cap.release()
+        if len(raw) == 0:
+            raise IOError(f"Video vacío: {path}")
+        indices = np.linspace(0, len(raw) - 1, num_frames, dtype=int)
+        pil_frames = [Image.fromarray(raw[i]) for i in indices]
+    else:
+        indices = set(np.linspace(0, total - 1, num_frames, dtype=int).tolist())
+        pil_frames, fi = [], 0
+        while cap.isOpened() and len(pil_frames) < num_frames:
+            ret, frame = cap.read()
+            if not ret:
+                break
+            if fi in indices:
+                pil_frames.append(Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)))
+            fi += 1
+        cap.release()
+
+    if len(pil_frames) == 0:
+        raise IOError(f"No se extrajeron frames de: {path}")
+    # Si faltan frames al final, repetimos el último
+    while len(pil_frames) < num_frames:
+        pil_frames.append(pil_frames[-1])
+
+    frames = [tf(f) for f in pil_frames[:num_frames]]
     return torch.stack(frames).permute(1, 0, 2, 3)   # [C, T, H, W]
 
 
