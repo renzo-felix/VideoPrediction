@@ -27,7 +27,7 @@ PIPELINE:
 
 USO:
   python run_layer_probing.py \
-      --checkpoint checkpoints/vit_g_hybrid_pt_1200e_ssv2_ft.pth \
+      --checkpoint /home/projects/video-prediction/checkpoints/videomaev2/vit_g_hybrid_pt_1200e_ssv2_ft.pth \
       --csv physical_diagnostics.csv \
       --batch_size 4 \
       --num_frames 16 \
@@ -411,7 +411,7 @@ def log_to_wandb(results: dict, project: str, run_name: str = None):
 def main():
     parser = argparse.ArgumentParser(description="Linear Probing sobre VideoMAEv2")
     parser.add_argument("--checkpoint", type=str,
-                        default="checkpoints/vit_g_hybrid_pt_1200e_ssv2_ft.pth",
+                        default="/home/projects/video-prediction/checkpoints/videomaev2/vit_g_hybrid_pt_1200e_ssv2_ft.pth",
                         help="Ruta al checkpoint SSv2 finetuned")
     parser.add_argument("--csv", type=str, default="physical_diagnostics.csv",
                         help="CSV de physical_diagnostics generado por create_physical_subset.py")

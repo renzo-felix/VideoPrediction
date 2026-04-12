@@ -28,7 +28,7 @@ OMP_NUM_THREADS=1 torchrun --nproc_per_node=1 \
     --nb_classes 174 \
     --data_path dataset/ssv2_luis/labels/sthv2 \
     --data_root dataset/ssv2_luis \
-    --finetune checkpoints/vit_g_hybrid_pt_1200e_ssv2_ft.pth \
+    --finetune /home/projects/video-prediction/checkpoints/videomaev2/vit_g_hybrid_pt_1200e_ssv2_ft.pth \
     --log_dir output_dir/ssv2_eval \
     --batch_size 4 \
     --num_sample 1 \

@@ -30,7 +30,7 @@ export LIBRARY_PATH=$CONDA_PREFIX/lib:$LIBRARY_PATH
 mkdir -p logs output_dir
 ln -sfn . dataset/ssv2_luis/SomethingV2/frames
 
-CHECKPOINT="checkpoints/vit_g_hybrid_pt_1200e_ssv2_ft.pth"
+CHECKPOINT="/home/projects/video-prediction/checkpoints/videomaev2/vit_g_hybrid_pt_1200e_ssv2_ft.pth"
 
 echo "=========================================="
 echo "TEST RÁPIDO: Linear Probing (100 videos)"

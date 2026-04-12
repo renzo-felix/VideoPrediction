@@ -48,7 +48,7 @@ mkdir -p $TRITON_CACHE_DIR
 
 # --- 3. RUTAS DEL PROYECTO ---
 BASE_DIR="/home/renzo.felix/Luis/VideoMAEv2_Proyecto_Paper"
-MODEL_PATH="$BASE_DIR/checkpoints/checkpoints/vit_b_k710_dl_from_giant.pth" 
+MODEL_PATH="$BASE_DIR/../home/projects/video-prediction/checkpoints/videomaev2/vit_b_k710_dl_from_giant.pth"
 DATA_PATH="$BASE_DIR/data/k710"
 OUTPUT_DIR="$BASE_DIR/work_dir/eval_test"
 

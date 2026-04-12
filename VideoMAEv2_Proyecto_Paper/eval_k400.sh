@@ -39,7 +39,7 @@ OMP_NUM_THREADS=1 torchrun --nproc_per_node=1 --master_port=$((29500 + RANDOM % 
     --nb_classes 400 \
     --data_path dataset/k400_luis/labels \
     --data_root . \
-    --finetune checkpoints/vit_g_hybrid_pt_1200e_k710_ft.pth \
+    --finetune /home/projects/video-prediction/checkpoints/videomaev2/vit_g_hybrid_pt_1200e_k710_ft.pth \
     --log_dir output_dir/k400_eval \
     --batch_size 4 \
     --num_sample 1 \

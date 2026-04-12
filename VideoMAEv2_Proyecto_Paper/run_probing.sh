@@ -37,7 +37,7 @@ mkdir -p logs output_dir
 # Crear symlink para que las rutas del CSV coincidan con la estructura real
 ln -sfn . dataset/ssv2_luis/SomethingV2/frames
 
-CHECKPOINT="checkpoints/vit_g_hybrid_pt_1200e_ssv2_ft.pth"
+CHECKPOINT="/home/projects/video-prediction/checkpoints/videomaev2/vit_g_hybrid_pt_1200e_ssv2_ft.pth"
 
 echo "=========================================="
 echo "Linear Probing sobre VideoMAEv2 ViT-Giant"
