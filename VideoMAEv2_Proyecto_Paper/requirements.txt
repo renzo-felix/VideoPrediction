@@ -1,0 +1,25 @@
+av
+decord
+deepspeed
+einops
+matplotlib
+numpy
+opencv-python
+pandas
+Pillow
+scipy
+tensorboard==2.9.0
+tensorboardX==1.8
+timm==0.4.12
+# torch>=1.2
+# torchaudio
+# torchvision
+# triton==1.0.0
+
+# ---- Dependencias añadidas para Interpretabilidad Mecanicista ----
+scikit-learn
+wandb
+umap-learn
+imageio
+ffmpeg-python
+seaborn
