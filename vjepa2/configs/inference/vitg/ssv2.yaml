@@ -6,7 +6,7 @@ nodes: 8
 max_workers: 8
 resume_checkpoint: true
 val_only: true
-tag: ssv2-vitl16-16x2x3-16f
+tag: ssv2-vitg16-256-16x2x3
 tasks_per_node: 8
 experiment:
   classifier:
@@ -14,7 +14,7 @@ experiment:
     num_probe_blocks: 4
   data:
     dataset_type: VideoDataset
-    dataset_train:  /home/renzo.felix/VideoPrediction/vjepa2/data/ssv2/ssv2_val_paths.csv
+    dataset_train: /home/renzo.felix/VideoPrediction/vjepa2/data/ssv2/ssv2_val_paths.csv
     dataset_val: /home/renzo.felix/VideoPrediction/vjepa2/data/ssv2/ssv2_val_paths.csv
     frame_step: 4
     frames_per_clip: 16
@@ -35,13 +35,13 @@ experiment:
     use_bfloat16: true
     use_pos_embed: false
 model_kwargs:
-  checkpoint: /home/renzo.felix/VideoPrediction/vjepa2/checkpoints/vitl.pt
+  checkpoint: /home/renzo.felix/VideoPrediction/vjepa2/checkpoints/vitg.pt
   module_name: evals.video_classification_frozen.modelcustom.vit_encoder_multiclip
   pretrain_kwargs:
     encoder:
       checkpoint_key: target_encoder
       img_temporal_dim_size: null
-      model_name: vit_large
+      model_name: vit_giant_xformers
       patch_size: 16
       tubelet_size: 2
       uniform_power: true

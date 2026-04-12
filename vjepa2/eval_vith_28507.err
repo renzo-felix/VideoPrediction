@@ -1,0 +1,45 @@
+/home/renzo.felix/miniconda3/envs/vjepa2-312/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/renzo.felix/VideoPrediction/vjepa2/evals/video_classification_frozen/eval.py:486: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scalers += [torch.cuda.amp.GradScaler() if use_bfloat16 else None]
+/home/renzo.felix/VideoPrediction/vjepa2/evals/video_classification_frozen/eval.py:306: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16, enabled=use_bfloat16):
+/home/renzo.felix/miniconda3/envs/vjepa2-312/lib/python3.12/contextlib.py:105: FutureWarning: `torch.backends.cuda.sdp_kernel()` is deprecated. In the future, this context manager will be removed. Please see `torch.nn.attention.sdpa_kernel()` for the new context manager, with updated signature.
+  self.gen = func(*args, **kwds)
+Process Process-1:
+Traceback (most recent call last):
+  File "/home/renzo.felix/miniconda3/envs/vjepa2-312/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/home/renzo.felix/miniconda3/envs/vjepa2-312/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/renzo.felix/VideoPrediction/vjepa2/evals/main.py", line 90, in process_main
+    eval_main(params["eval_name"], args_eval=params)
+  File "/home/renzo.felix/VideoPrediction/vjepa2/evals/scaffold.py", line 19, in main
+    return importlib.import_module(import_path).main(args_eval=args_eval, resume_preempt=resume_preempt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/renzo.felix/VideoPrediction/vjepa2/evals/video_classification_frozen/eval.py", line 247, in main
+    train_acc = run_one_epoch(
+                ^^^^^^^^^^^^^^
+  File "/home/renzo.felix/VideoPrediction/vjepa2/evals/video_classification_frozen/eval.py", line 336, in run_one_epoch
+    [s.step(o) for s, o in zip(scaler, optimizer)]
+     ^^^^^^^^^
+  File "/home/renzo.felix/miniconda3/envs/vjepa2-312/lib/python3.12/site-packages/torch/amp/grad_scaler.py", line 463, in step
+    retval = self._maybe_opt_step(optimizer, optimizer_state, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/renzo.felix/miniconda3/envs/vjepa2-312/lib/python3.12/site-packages/torch/amp/grad_scaler.py", line 357, in _maybe_opt_step
+    retval = optimizer.step(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/renzo.felix/miniconda3/envs/vjepa2-312/lib/python3.12/site-packages/torch/optim/optimizer.py", line 526, in wrapper
+    out = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/renzo.felix/miniconda3/envs/vjepa2-312/lib/python3.12/site-packages/torch/optim/optimizer.py", line 81, in _use_grad
+    ret = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/renzo.felix/miniconda3/envs/vjepa2-312/lib/python3.12/site-packages/torch/optim/adam.py", line 238, in step
+    has_complex = self._init_group(
+                  ^^^^^^^^^^^^^^^^^
+  File "/home/renzo.felix/miniconda3/envs/vjepa2-312/lib/python3.12/site-packages/torch/optim/adam.py", line 178, in _init_group
+    state["exp_avg"] = torch.zeros_like(
+                       ^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 32.00 MiB. GPU 0 has a total capacity of 39.50 GiB of which 23.38 MiB is free. Including non-PyTorch memory, this process has 39.46 GiB memory in use. Of the allocated memory 36.49 GiB is allocated by PyTorch, and 2.02 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank0]:[W223 10:28:05.907027351 ProcessGroupNCCL.cpp:1553] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

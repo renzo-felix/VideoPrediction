@@ -1,0 +1,47 @@
+cat > /home/renzo.felix/VideoPrediction/.gitignore << 'EOF'
+# Pesos de modelos
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.ckpt
+checkpoints/
+evals/
+
+# Videos y datos
+*.mp4
+*.webm
+*.avi
+*.mkv
+*.mov
+data/
+*.tar
+*.zip
+*.gz
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Entornos
+.env
+venv/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs y SLURM
+*.log
+*.out
+submitit/
+slurm_logs/
+
+# Misc
+.DS_Store
+Thumbs.db
+EOF
+

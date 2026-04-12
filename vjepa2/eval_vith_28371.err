@@ -1,0 +1,24 @@
+/home/renzo.felix/miniconda3/envs/vjepa2-312/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Process Process-1:
+Traceback (most recent call last):
+  File "/home/renzo.felix/miniconda3/envs/vjepa2-312/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/home/renzo.felix/miniconda3/envs/vjepa2-312/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/renzo.felix/VideoPrediction/vjepa2/evals/main.py", line 90, in process_main
+    eval_main(params["eval_name"], args_eval=params)
+  File "/home/renzo.felix/VideoPrediction/vjepa2/evals/scaffold.py", line 19, in main
+    return importlib.import_module(import_path).main(args_eval=args_eval, resume_preempt=resume_preempt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/renzo.felix/VideoPrediction/vjepa2/evals/video_classification_frozen/eval.py", line 161, in main
+    classifiers = [DistributedDataParallel(c, static_graph=True) for c in classifiers]
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/renzo.felix/miniconda3/envs/vjepa2-312/lib/python3.12/site-packages/torch/nn/parallel/distributed.py", line 864, in __init__
+    _sync_module_states(
+  File "/home/renzo.felix/miniconda3/envs/vjepa2-312/lib/python3.12/site-packages/torch/distributed/utils.py", line 315, in _sync_module_states
+    _sync_params_and_buffers(process_group, module_states, broadcast_bucket_size, src)
+  File "/home/renzo.felix/miniconda3/envs/vjepa2-312/lib/python3.12/site-packages/torch/distributed/utils.py", line 326, in _sync_params_and_buffers
+    dist._broadcast_coalesced(
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 270.00 MiB. GPU 0 has a total capacity of 14.57 GiB of which 8.75 MiB is free. Including non-PyTorch memory, this process has 14.55 GiB memory in use. Of the allocated memory 13.80 GiB is allocated by PyTorch, and 201.12 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank0]:[W219 19:19:25.698535148 ProcessGroupNCCL.cpp:1553] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

@@ -1,0 +1,1 @@
+/home/renzo.felix/miniconda3/envs/vjepa2-312/bin/python: Error while finding module specification for 'preparar.pyc' (ModuleNotFoundError: __path__ attribute not found on 'preparar' while trying to find 'preparar.pyc')
