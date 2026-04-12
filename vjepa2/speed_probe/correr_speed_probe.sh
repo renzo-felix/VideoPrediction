@@ -3,7 +3,7 @@
 #SBATCH --partition=data-science
 #SBATCH --gres=gpu:1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=8
+#SBATCH --cpus-per-task=16
 #SBATCH --mem=32G
 #SBATCH --time=4-00:00:00
 #SBATCH --output=eval_speed_ssv2_%j.out
@@ -26,5 +26,6 @@ python -u speed_probe/run_speed_probe.py \
     --data_root data/ssv2/videos/20bn-something-something-v2 \
     --video_format webm \
     --output_dir speed_probe/output/vitl_ssv2 \
-    --wandb_project vjepa2_speed_probe \
-    --wandb_run vjepa2_vitl_ssv2
+    --batch_size 8 \
+    --num_workers 8 \
+    --no_wandb
