@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//home/projects/video-prediction/**)",
+      "Read(//d/proyectos/VideoPrediction/**)"
+    ]
+  }
+}

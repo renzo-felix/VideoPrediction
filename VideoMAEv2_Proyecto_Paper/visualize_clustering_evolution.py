@@ -25,19 +25,27 @@ class ClusteringEvolutionAnimator:
     def __init__(self, npz_path: str, output_dir: str):
         self.npz_path = npz_path
         self.output_dir = output_dir
-        self.layers = [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 39]
+        # Capas se detectan automáticamente del .npz (compatible con VideoMAEv2 y V-JEPA 2)
+        self.layers = None
         self.components = ["residual", "attn", "mlp"]
-        
+
         # Almacenarán las proyecciones 2D (diccionarios component -> int(layer) -> np.ndarray [N, 2])
         self.projections = {comp: {} for comp in self.components}
         self.labels = None
 
     def load_data(self):
-        """Carga el .npz y aisla las etiquetas."""
+        """Carga el .npz y detecta automáticamente las capas disponibles."""
         print(f"[INFO] Cargando datos desde {self.npz_path}...")
         self.data = np.load(self.npz_path)
         self.labels = self.data["labels"]
-        print(f"       ✅ Se cargaron {len(self.labels)} muestras/videos.")
+        # Detectar capas desde las claves del .npz (ej: "block_0_residual_features")
+        layer_set = set()
+        for key in self.data.keys():
+            if key.startswith("block_") and key.endswith("_features"):
+                parts = key.split("_")
+                layer_set.add(int(parts[1]))
+        self.layers = sorted(layer_set)
+        print(f"       {len(self.labels)} muestras | capas detectadas: {self.layers}")
 
     def apply_dimensionality_reduction(self):
         """
