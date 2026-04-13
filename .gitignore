@@ -56,3 +56,7 @@ VideoMAEv2_Proyecto_Paper/output_dir/
 .vscode/
 .idea/
 
+speed_probe/output/
+*.npz
+*.out
+*.err

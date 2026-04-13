@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=vjepa2_vis_layers
-#SBATCH --partition=data-science
+#SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4

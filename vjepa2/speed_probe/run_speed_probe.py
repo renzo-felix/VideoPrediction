@@ -7,7 +7,7 @@ Adaptado del pipeline de Luis (VideoMAEv2_Proyecto_Paper/run_layer_probing.py).
 Uso (SSv2 .webm):
   python speed_probe/run_speed_probe.py \
       --checkpoint checkpoints/vitl.pt \
-      --csv /home/renzo.felix/Luis/VideoMAEv2_Proyecto_Paper/physical_diagnostics.csv \
+      --csv /home/renzo.felix/VideoPrediction/VideoMAEv2_Proyecto_Paper/physical_diagnostics.csv \
       --data_root data/ssv2/videos/20bn-something-something-v2 \
       --video_format webm \
       --output_dir speed_probe/output/vitl_ssv2
