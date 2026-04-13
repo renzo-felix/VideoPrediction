@@ -7,7 +7,7 @@
 #SBATCH --nodelist=g002
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
-#SBATCH --mem=64G
+#SBATCH --mem=128G
 #SBATCH --account=investigacion1
 #SBATCH --qos=a-investigacion1
 #SBATCH --time=2-00:00:00
