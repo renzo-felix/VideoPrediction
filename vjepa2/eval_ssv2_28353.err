@@ -1,0 +1,9 @@
+/home/renzo.felix/miniconda3/envs/vjepa2-312/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/renzo.felix/VideoPrediction/vjepa2/evals/video_classification_frozen/eval.py:486: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scalers += [torch.cuda.amp.GradScaler() if use_bfloat16 else None]
+/home/renzo.felix/VideoPrediction/vjepa2/evals/video_classification_frozen/eval.py:306: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16, enabled=use_bfloat16):
+/home/renzo.felix/miniconda3/envs/vjepa2-312/lib/python3.12/contextlib.py:105: FutureWarning: `torch.backends.cuda.sdp_kernel()` is deprecated. In the future, this context manager will be removed. Please see `torch.nn.attention.sdpa_kernel()` for the new context manager, with updated signature.
+  self.gen = func(*args, **kwds)
+slurmstepd-ds001: error: *** JOB 28353 ON ds001 CANCELLED AT 2026-02-20T02:17:36 DUE TO TIME LIMIT ***

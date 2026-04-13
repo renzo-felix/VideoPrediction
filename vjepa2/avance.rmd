@@ -1,0 +1,6 @@
+Los 4 modelos disponibles
+Modelo	Encoder	Probe SSv2	Config inference
+ViT-L	vitl.pt	ssv2-vitl-16x2x3.pt	configs/inference/vitl/ssv2.yaml ✅ ya corriste vitl_eval_ssv2_28323
+ViT-H	vith.pt	No publicado aún ✅ 	mande el entrenamiento 28378- 28637  ❌	me flata el value o test
+ViT-g	vitg.pt	No publicado aún  ✅ 	mande el entrenamiento 28568-  ❌	me flata el value o test
+ViT-g₃₈₄	vitg-384.pt	ssv2-vitg-384-64x2x3.pt	configs/inference/vitg-384/ssv2.yaml  ✅	ya corriste 28399 eval

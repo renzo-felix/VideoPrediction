@@ -1,3 +1,4 @@
+
 # ========================
 # Entorno de Python
 # ========================
@@ -54,3 +55,10 @@ VideoMAEv2_Proyecto_Paper/output_dir/
 # ========================
 .vscode/
 .idea/
+
+speed_probe/output/
+*.npz
+*.out
+*.err
+vjepa2/.claude/settings.local.json
+/vjepa2/.claude
