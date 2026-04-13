@@ -23,12 +23,12 @@ CSV=speed_probe/physical_diagnostics_k400.csv
 if [ ! -f "$CSV" ]; then
     echo "Generando CSV de K400..."
     python speed_probe/make_k400_csv.py \
-        --k400_root /home/datasets/k400 \
-        --split train \
+        --k400_csv data/K400/train.csv \
         --output "$CSV"
 fi
 
 # Paso 2: correr el probe
+# data_root se ignora para K400 (paths absolutos en el CSV)
 python -u speed_probe/run_speed_probe.py \
     --checkpoint checkpoints/vitl.pt \
     --model_name vit_large \

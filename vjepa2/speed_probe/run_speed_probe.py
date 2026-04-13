@@ -123,13 +123,11 @@ def load_video(path: str, num_frames: int, img_size: int) -> torch.Tensor:
 def resolve_path(data_root: str, csv_path: str, ext: str) -> str:
     """
     Convierte path del CSV a ruta real.
-    - SSv2:  "SomethingV2/frames/34899"  → data_root/34899.webm
-    - K400:  "running/video123"           → data_root/running/video123.mp4
-    Intenta primero la ruta completa relativa; si no existe usa solo el basename.
+    - K400:  path absoluto "/home/datasets/k400/train/video.mp4" → devuelve tal cual
+    - SSv2:  "SomethingV2/frames/34899" → data_root/34899.webm
     """
-    full = os.path.join(data_root, f"{csv_path}.{ext}")
-    if os.path.exists(full):
-        return full
+    if os.path.isabs(csv_path):
+        return csv_path   # K400: path absoluto, ya incluye extensión
     video_id = os.path.basename(csv_path)
     return os.path.join(data_root, f"{video_id}.{ext}")
 
