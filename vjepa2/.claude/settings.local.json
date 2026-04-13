@@ -2,7 +2,15 @@
   "permissions": {
     "allow": [
       "Read(//home/projects/video-prediction/**)",
-      "Read(//d/proyectos/VideoPrediction/**)"
+      "Read(//d/proyectos/VideoPrediction/**)",
+      "Bash(cd /tmp)",
+      "Bash(python3 -c ':*)",
+      "Bash(pip install:*)",
+      "Bash(python3 -c \"from pypdf import PdfReader; print\\('ok'\\)\")",
+      "Bash(pip --version)",
+      "Bash(python -c \"from pypdf import PdfReader; print\\('ok'\\)\")",
+      "Bash(python -c ':*)",
+      "Bash(python -c \"import sys; sys.stdout.write\\(sys.stdin.read\\(\\)\\)\")"
     ]
   }
 }

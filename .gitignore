@@ -60,3 +60,5 @@ speed_probe/output/
 *.npz
 *.out
 *.err
+vjepa2/.claude/settings.local.json
+/vjepa2/.claude

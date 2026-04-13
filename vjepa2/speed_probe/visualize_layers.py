@@ -149,8 +149,8 @@ def make_animation(projected_per_video, labels, num_frames, layers_sorted,
     all_pts = np.concatenate(
         [pts for proj in projected_per_video for pts in proj.values()], axis=0)
     pad = 0.08
-    xr = all_pts[:, 0].ptp()
-    yr = all_pts[:, 1].ptp()
+    xr = all_pts[:, 0].max() - all_pts[:, 0].min()
+    yr = all_pts[:, 1].max() - all_pts[:, 1].min()
     xlim = (all_pts[:, 0].min() - pad*xr, all_pts[:, 0].max() + pad*xr)
     ylim = (all_pts[:, 1].min() - pad*yr, all_pts[:, 1].max() + pad*yr)
 
