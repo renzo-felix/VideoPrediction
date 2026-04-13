@@ -8,11 +8,24 @@ Nuestro script `mechanistic_hooks.py` (248 líneas) contiene la clase `VideoMAEA
 
 Para lograr una animación de clustering (PCA+UMAP) que muestre una evolución semántica fluida e ininterrumpida, debemos escalar la extracción a las **40 capas completas**. Esto generará 120 combinaciones de tensores por video (40 capas × 3 submódulos: Residual, MHA, MLP).
 
-Operamos en el clúster Khipu utilizando nodos con GPU NVIDIA RTX A6000 (48GB VRAM) bajo la partición `data-science`.
+Operamos en el clúster Khipu utilizando nodos con GPU NVIDIA RTX A6000 (48GB VRAM).
+
+**Referencia de tiempos reales (Job 29344):** La ejecución previa con 11 capas tardó 4h 21min en data-science. Con 40 capas (3.6× más), se estima ~16h de ejecución. El script Slurm debe solicitar tiempo suficiente.
 
 **Archivos existentes que NO deben sobrescribirse:**
 - `output_dir/activations.npz` (3.6 GB) — contiene las activaciones de 11 capas × 3 componentes × 21,202 videos
 - `output_dir/probing_results.json` (7.5 KB) — resultados de linear probing de las 11 capas
+
+**Logging a WandB:**
+El script `run_layer_probing.py` ya tiene integración con Weights & Biases (líneas 345-404). Incluye:
+- Función `log_to_wandb()` que sube accuracy por capa, confusion matrices y gráficas interactivas
+- Argumentos CLI: `--wandb_project` (default: `videomae_probing`) y `--no_wandb` para desactivar
+- La API key de WandB ya está configurada en `~/.netrc` del clúster
+- **IMPORTANTE:** En el job 29344 hubo un error de autenticación WandB. Si vuelve a fallar, agregar en el script Slurm:
+  ```bash
+  export WANDB_API_KEY=$(grep password ~/.netrc | awk '{print $2}')
+  ```
+  O pasar `--no_wandb` para evitar que el job falle por WandB.
 
 **Tu Tarea:**
 Refactoriza `mechanistic_hooks.py` y actualiza `run_layer_probing.py` para soportar la extracción de las 40 capas completas, aplicando estrictas buenas prácticas de HPC. No debes modificar los archivos del modelo original (`models/modeling_finetune.py` — arquitectura caja negra).
@@ -61,18 +74,82 @@ Refactoriza `mechanistic_hooks.py` y actualiza `run_layer_probing.py` para sopor
 5. **Desacople y Serialización Estricta:**
    Asegurar que en `run_layer_probing.py` (línea 248) se mantenga `.numpy().copy()` al extraer los tensores. También añadir limpieza de caché GPU cada 50 videos (ya existe parcialmente en línea 256-258, solo reforzar con `torch.cuda.empty_cache()`).
 
-6. **Directivas de Sistema (Docstring):**
-   Añadir en la cabecera de `mechanistic_hooks.py`:
-   ```python
-   # REQUISITO DE EJECUCIÓN HPC (bash):
-   # export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
-   # Esto evita la fragmentación de VRAM con tensores de 1408 dimensiones.
+6. **Logging WandB (mantener y parametrizar):**
+   En `run_layer_probing.py`, el `--wandb_project` debe reflejar que es un run de 40 capas. Sugerir en el script Slurm:
+   ```bash
+   python -u run_layer_probing.py \
+       --layers $(seq 0 39 | tr '\n' ' ') \
+       --wandb_project videomae_probing \
+       --output_dir output_dir
+   ```
+   Si WandB falla, el job NO debe abortar — la función `log_to_wandb()` ya está protegida por `if WANDB_AVAILABLE`.
+
+7. **Script de Lanzamiento HPC (Slurm/Khipu) — `run_probing_40layers.sh`:**
+   Crear el script Slurm completo para ejecutar en el clúster Khipu:
+   ```bash
+   #!/bin/bash
+   #SBATCH --job-name=probing_40layers
+   #SBATCH --output=logs/probing_40layers_%j.out
+   #SBATCH --error=logs/probing_40layers_%j.err
+   #SBATCH --partition=gpu
+   #SBATCH --gres=gpu:1
+   #SBATCH --ntasks=1
+   #SBATCH --cpus-per-task=8
+   #SBATCH --mem=32G
+   #SBATCH --account=investigacion1
+   #SBATCH --qos=a-investigacion1
+   #SBATCH --time=2-00:00:00
+
+   # 1. CARGA DE MÓDULOS BASE
+   module load cuda/11.8
+   module load miniconda/3.0
+
+   # 2. ACTIVACIÓN DEL ENTORNO CONDA
+   eval "$(conda shell.bash hook)"
+   conda activate videomae_luis_izaguirre
+
+   # 3. CONFIGURACIÓN DE RUTAS PARA TRITON (SOLUCIÓN stdlib.h)
+   export CPATH=$CONDA_PREFIX/include:$CPATH
+   export LIBRARY_PATH=$CONDA_PREFIX/lib:$LIBRARY_PATH
+
+   # 4. PREVENCIÓN DE FRAGMENTACIÓN DE VRAM (CRÍTICO PARA 40 CAPAS)
+   export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+
+   # 5. AUTENTICACIÓN WANDB (usar key de ~/.netrc)
+   export WANDB_API_KEY=$(grep password ~/.netrc | awk '{print $2}')
+
+   # 6. EJECUCIÓN DEL PIPELINE (PROBING)
+   python -u run_layer_probing.py \
+       --layers $(seq 0 39 | tr '\n' ' ') \
+       --wandb_project videomae_probing \
+       --output_dir output_dir
+
+   # 7. GENERACIÓN DEL VIDEO DE CLUSTERING (PCA+UMAP)
+   python -u visualize_clustering_evolution.py \
+       --npz output_dir/activations_40layers.npz \
+       --output_dir videos_simulation_clustering \
+       --output_name clustering_evolution_ssv2_40layers.mp4
    ```
 
 **NO modificar:**
 - `models/modeling_finetune.py` (caja negra)
 - `run_class_finetuning.py` (pipeline base inmutable)
 - La lógica de `_make_hook()`, `_register_hooks()`, `get_activations()`, `get_pooled_activations()`
+- La función `log_to_wandb()` existente (solo asegurarse de que sea invocada correctamente)
 
 **Entregable:**
-Proporciona únicamente los diffs de `mechanistic_hooks.py` y `run_layer_probing.py`. Cada decisión de memoria debe estar justificada en los comentarios del código.
+Proporciona los diffs de `mechanistic_hooks.py`, `run_layer_probing.py` y `visualize_clustering_evolution.py` (añadir argumento `--output_name` para naming personalizado del .mp4), más el script completo `run_probing_40layers.sh`.
+
+**Requisitos de documentación del código:**
+- Cada función nueva o modificada debe tener un **docstring** explicando su propósito, parámetros y valores de retorno.
+- Cada decisión técnica (memoria, naming, limpieza de caché, etc.) debe estar **justificada con un comentario inline** explicando el *por qué* de esa implementación, no solo el *qué* hace.
+- Los bloques de código críticos (hooks, limpieza de GPU, serialización de .npz) deben tener comentarios que expliquen la razón de diseño.
+- Ejemplo de comentario esperado:
+  ```python
+  # Forzamos gc.collect() + empty_cache() después de cada video porque 
+  # 40 capas × 3 componentes generan ~120 tensores de [1, 2048, 1408] 
+  # que fragmentan la VRAM de la RTX A6000 si no se liberan activamente.
+  ```
+
+**Video de clustering existente que NO debe sobrescribirse:**
+- `videos_simulation_clustering/clustering_evolution.mp4` (328 KB, 11 capas) — el nuevo video se llamará `clustering_evolution_ssv2_40layers.mp4`
