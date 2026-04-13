@@ -3,10 +3,11 @@
 #SBATCH --output=logs/probing_40layers_%j.out
 #SBATCH --error=logs/probing_40layers_%j.err
 #SBATCH --partition=gpu
-#SBATCH --gres=gpu:1
+#SBATCH --gres=gpu:rtxa6000:1
+#SBATCH --nodelist=g002
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
-#SBATCH --mem=32G
+#SBATCH --mem=64G
 #SBATCH --account=investigacion1
 #SBATCH --qos=a-investigacion1
 #SBATCH --time=2-00:00:00
