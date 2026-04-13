@@ -199,11 +199,18 @@ def extract_all_activations(
     """
     Extrae activaciones para todos los videos del CSV diagnóstico.
 
+    ESTRATEGIA DE MEMORIA (CRÍTICA PARA 40 CAPAS):
+    En vez de acumular listas de arrays numpy (que fragmentan la RAM de Python
+    y causaron OOM en Job 29937 con 64GB), pre-asignamos arrays numpy contiguos
+    de tamaño [N_videos, embed_dim]. Esto reduce el consumo de:
+      - Listas: ~40-50 GB (21K × 120 listas × overhead de Python objects)
+      - Pre-asignado: ~14.3 GB (21K × 120 × 1408 × 4 bytes, contiguos en RAM)
+
     Para cada video:
       1. Cargar frames → tensor [C, T, H, W]
       2. Forward pass (con no_grad) → hooks capturan activaciones
       3. Pool sobre tokens → [1, 1408] por capa/componente
-      4. Almacenar activación + label
+      4. Escribir directamente en el array pre-asignado (sin append)
 
     Args:
         max_videos: Si no es None, limitar la cantidad de videos (para debug)
@@ -212,8 +219,7 @@ def extract_all_activations(
         Dict con keys = nombre de activación (ej. "block_0_residual")
         y values = dict con "features" (np.array [N, 1408]) y "labels" (np.array [N])
     """
-    all_pooled = {}  # {name: [lista de tensors [1408]]}
-    all_labels = []
+    import gc
 
     if max_videos:
         entries = entries[:max_videos]
@@ -221,11 +227,52 @@ def extract_all_activations(
     total = len(entries)
     errors = 0
 
-    for i, entry in enumerate(entries):
+    # --- PRE-ASIGNACIÓN DE ARRAYS NUMPY ---
+    # Hacemos un forward pass de prueba con el primer video para descubrir
+    # los nombres de las activaciones y la dimensión embed_dim.
+    # Esto evita hardcodear nombres y es compatible con cualquier cantidad de capas.
+    first_video_path = os.path.join(data_root, entries[0]["video_path"])
+    probe_tensor = load_video_frames(first_video_path, num_frames=num_frames)
+    probe_tensor = probe_tensor.unsqueeze(0).to(device)
+    with torch.no_grad():
+        _ = model(probe_tensor)
+    probe_pooled = extractor.get_pooled_activations()
+
+    # Obtener nombres y embed_dim del forward pass de prueba
+    activation_names = sorted(probe_pooled.keys())
+    embed_dim = probe_pooled[activation_names[0]].squeeze(0).shape[0]  # 1408
+    print(f"  Pre-asignando {len(activation_names)} arrays de [{total}, {embed_dim}] "
+          f"({len(activation_names) * total * embed_dim * 4 / 1e9:.1f} GB)...")
+
+    # Pre-asignar arrays contiguos: mucho más eficiente que listas de append
+    all_features = {name: np.empty((total, embed_dim), dtype=np.float32) for name in activation_names}
+    all_labels = np.empty(total, dtype=np.int64)
+
+    # Guardar el primer video (ya lo procesamos)
+    for name, tensor in probe_pooled.items():
+        all_features[name][0] = tensor.squeeze(0).numpy()
+    all_labels[0] = entries[0]["speed_label"]
+    extractor.clear_activations()
+    del probe_tensor, probe_pooled
+    gc.collect()
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+
+    # Índice de escritura (empezamos en 1 porque el video 0 ya se procesó)
+    write_idx = 1
+
+    for i, entry in enumerate(entries[1:], start=1):
         video_path = os.path.join(data_root, entry["video_path"])
 
         if (i + 1) % 50 == 0 or i == 0:
             print(f"  Procesando video {i+1}/{total}: {entry['video_path']}")
+
+        # Monitoreo de memoria cada 500 videos para detectar leaks temprano
+        if (i + 1) % 500 == 0:
+            import psutil
+            mem = psutil.Process().memory_info()
+            print(f"  [MEM] Video {i+1}: RSS={mem.rss / 1e9:.1f} GB, "
+                  f"VMS={mem.vms / 1e9:.1f} GB")
 
         try:
             # 1. Cargar video → [C, T, H, W] = [3, 16, 224, 224]
@@ -240,22 +287,26 @@ def extract_all_activations(
             # 3. Obtener activaciones pooled: [1, 1408] por capa/componente
             pooled = extractor.get_pooled_activations()
 
-            # 4. Almacenar
+            # 4. Escribir directamente en los arrays pre-asignados (sin append)
+            # Esto evita la fragmentación de RAM que causó OOM en Job 29937
             for name, tensor in pooled.items():
-                if name not in all_pooled:
-                    all_pooled[name] = []
-                # tensor: [1, 1408] → squeeze → [1408]
-                all_pooled[name].append(tensor.squeeze(0).numpy().copy())
+                all_features[name][write_idx] = tensor.squeeze(0).numpy()
 
-            all_labels.append(entry["speed_label"])
+            all_labels[write_idx] = entry["speed_label"]
+            write_idx += 1
 
             # 5. Limpiar activaciones para el siguiente video
             extractor.clear_activations()
-            del video_tensor
-            
+            del video_tensor, pooled
+
             if (i + 1) % 50 == 0:
-                import gc
+                # Forzamos gc.collect() + empty_cache() cada 50 videos porque
+                # 40 capas × 3 componentes generan ~120 tensores de [1, 2048, 1408]
+                # por video. Sin limpieza periódica, la fragmentación de VRAM
+                # en la RTX A6000 (48GB) provoca errores OOM en videos posteriores.
                 gc.collect()
+                if torch.cuda.is_available():
+                    torch.cuda.empty_cache()
 
         except Exception as e:
             errors += 1
@@ -266,15 +317,15 @@ def extract_all_activations(
             extractor.clear_activations()
             continue
 
-    print(f"\n  Procesados: {len(all_labels)}/{total} videos ({errors} errores)")
+    print(f"\n  Procesados: {write_idx}/{total} videos ({errors} errores)")
 
-    # Convertir a numpy arrays
+    # Recortar arrays si hubo errores (write_idx < total)
+    # Esto evita enviar filas de ceros al clasificador lineal
     result = {}
-    labels_array = np.array(all_labels)
-    for name, feature_list in all_pooled.items():
-        # feature_list: lista de [1408] → stack → [N, 1408]
+    labels_array = all_labels[:write_idx]
+    for name in activation_names:
         result[name] = {
-            "features": np.stack(feature_list, axis=0),
+            "features": all_features[name][:write_idx],
             "labels": labels_array,
         }
     return result
@@ -430,8 +481,8 @@ def main():
     parser.add_argument("--no_wandb", action="store_true",
                         help="Desactivar WandB logging")
     parser.add_argument("--layers", type=int, nargs="+",
-                        default=[0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 39],
-                        help="Capas a analizar (default: distribución uniforme sobre 40 bloques)")
+                        default=list(range(40)),
+                        help="Capas a analizar (default: todas las 40 capas del ViT-Giant)")
     args = parser.parse_args()
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -475,7 +526,12 @@ def main():
 
     # 5. Guardar activaciones en disco (para el visualizador de clustering)
     os.makedirs(args.output_dir, exist_ok=True)
-    save_path = os.path.join(args.output_dir, "activations.npz")
+    # Naming dinámico basado en la cantidad de capas para no sobrescribir
+    # los resultados existentes de 11 capas (activations.npz, probing_results.json).
+    # Con 40 capas generamos activations_40layers.npz; con 11, activations_11layers.npz.
+    num_layers = len(args.layers)
+    npz_name = f"activations_{num_layers}layers.npz"
+    save_path = os.path.join(args.output_dir, npz_name)
     print(f"\n[INFO] Guardando matriz de activaciones en disco ({save_path})...")
     
     save_dict = {}
@@ -486,15 +542,18 @@ def main():
     
     # Usamos np.savez_compressed para compresión zlib (más ligereza en disco)
     np.savez_compressed(save_path, **save_dict)
-    print("✅ Activaciones extraídas y guardadas con éxito.")
+    print(f"✅ Activaciones extraídas y guardadas con éxito en {npz_name}.")
 
     # 6. Entrenar Linear Probes
     print(f"\nEntrenando Linear Probes ({len(activations_dict)} combinaciones)...")
     results = train_probes(activations_dict)
 
-    # 6. Guardar resultados
+    # 6. Guardar resultados de probing
     os.makedirs(args.output_dir, exist_ok=True)
-    output_path = os.path.join(args.output_dir, "probing_results.json")
+    # Naming dinámico para JSON igual que el .npz, evitando sobrescribir
+    # los probing_results.json existentes de la ejecución con 11 capas.
+    json_name = f"probing_results_{num_layers}layers.json"
+    output_path = os.path.join(args.output_dir, json_name)
     with open(output_path, "w") as f:
         json.dump(results, f, indent=2)
     print(f"\n✅ Resultados guardados en: {output_path}")
