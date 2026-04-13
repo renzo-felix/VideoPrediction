@@ -254,8 +254,14 @@ def extract_all_activations(
             del video_tensor
             
             if (i + 1) % 50 == 0:
+                # Forzamos gc.collect() + empty_cache() cada 50 videos porque
+                # 40 capas × 3 componentes generan ~120 tensores de [1, 2048, 1408]
+                # por video. Sin limpieza periódica, la fragmentación de VRAM
+                # en la RTX A6000 (48GB) provoca errores OOM en videos posteriores.
                 import gc
                 gc.collect()
+                if torch.cuda.is_available():
+                    torch.cuda.empty_cache()
 
         except Exception as e:
             errors += 1
@@ -430,8 +436,8 @@ def main():
     parser.add_argument("--no_wandb", action="store_true",
                         help="Desactivar WandB logging")
     parser.add_argument("--layers", type=int, nargs="+",
-                        default=[0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 39],
-                        help="Capas a analizar (default: distribución uniforme sobre 40 bloques)")
+                        default=list(range(40)),
+                        help="Capas a analizar (default: todas las 40 capas del ViT-Giant)")
     args = parser.parse_args()
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -475,7 +481,12 @@ def main():
 
     # 5. Guardar activaciones en disco (para el visualizador de clustering)
     os.makedirs(args.output_dir, exist_ok=True)
-    save_path = os.path.join(args.output_dir, "activations.npz")
+    # Naming dinámico basado en la cantidad de capas para no sobrescribir
+    # los resultados existentes de 11 capas (activations.npz, probing_results.json).
+    # Con 40 capas generamos activations_40layers.npz; con 11, activations_11layers.npz.
+    num_layers = len(args.layers)
+    npz_name = f"activations_{num_layers}layers.npz"
+    save_path = os.path.join(args.output_dir, npz_name)
     print(f"\n[INFO] Guardando matriz de activaciones en disco ({save_path})...")
     
     save_dict = {}
@@ -486,15 +497,18 @@ def main():
     
     # Usamos np.savez_compressed para compresión zlib (más ligereza en disco)
     np.savez_compressed(save_path, **save_dict)
-    print("✅ Activaciones extraídas y guardadas con éxito.")
+    print(f"✅ Activaciones extraídas y guardadas con éxito en {npz_name}.")
 
     # 6. Entrenar Linear Probes
     print(f"\nEntrenando Linear Probes ({len(activations_dict)} combinaciones)...")
     results = train_probes(activations_dict)
 
-    # 6. Guardar resultados
+    # 6. Guardar resultados de probing
     os.makedirs(args.output_dir, exist_ok=True)
-    output_path = os.path.join(args.output_dir, "probing_results.json")
+    # Naming dinámico para JSON igual que el .npz, evitando sobrescribir
+    # los probing_results.json existentes de la ejecución con 11 capas.
+    json_name = f"probing_results_{num_layers}layers.json"
+    output_path = os.path.join(args.output_dir, json_name)
     with open(output_path, "w") as f:
         json.dump(results, f, indent=2)
     print(f"\n✅ Resultados guardados en: {output_path}")

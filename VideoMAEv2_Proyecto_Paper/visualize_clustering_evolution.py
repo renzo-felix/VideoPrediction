@@ -22,10 +22,19 @@ class ClusteringEvolutionAnimator:
     Soporta visualización simultánea de 3 paneles: Residual, Attention y MLP.
     """
 
-    def __init__(self, npz_path: str, output_dir: str):
+    def __init__(self, npz_path: str, output_dir: str, output_name: str = "clustering_evolution.mp4"):
+        """
+        Args:
+            npz_path: Ruta al archivo .npz con las activaciones extraídas.
+            output_dir: Directorio donde se guardará el video .mp4.
+            output_name: Nombre del archivo .mp4 de salida. Se parametriza
+                         para permitir naming diferenciado por dataset/modelo
+                         (ej. clustering_evolution_ssv2_40layers.mp4) y evitar
+                         sobrescribir videos existentes de ejecuciones previas.
+        """
         self.npz_path = npz_path
         self.output_dir = output_dir
-        self.layers = [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 39]
+        self.output_name = output_name
         self.components = ["residual", "attn", "mlp"]
         
         # Almacenarán las proyecciones 2D (diccionarios component -> int(layer) -> np.ndarray [N, 2])
@@ -33,11 +42,35 @@ class ClusteringEvolutionAnimator:
         self.labels = None
 
     def load_data(self):
-        """Carga el .npz y aisla las etiquetas."""
+        """
+        Carga el .npz y detecta automáticamente las capas disponibles.
+
+        En lugar de hardcodear [0,4,8,...,39], inspecciona las claves del .npz
+        para determinar qué capas están presentes. Esto permite que el mismo
+        script funcione tanto con el .npz de 11 capas (activations.npz) como
+        con el de 40 capas (activations_40layers.npz) sin modificación.
+        """
         print(f"[INFO] Cargando datos desde {self.npz_path}...")
         self.data = np.load(self.npz_path)
         self.labels = self.data["labels"]
+
+        # Auto-detectar capas disponibles inspeccionando las claves del .npz.
+        # Las claves siguen el patrón: block_{i}_{comp}_features
+        # Extraemos los índices únicos de capa y los ordenamos.
+        detected_layers = set()
+        for key in self.data.files:
+            if key.startswith("block_") and key.endswith("_features"):
+                # Ejemplo: "block_12_residual_features" → extraer "12"
+                parts = key.split("_")
+                try:
+                    layer_idx = int(parts[1])
+                    detected_layers.add(layer_idx)
+                except (ValueError, IndexError):
+                    continue
+
+        self.layers = sorted(detected_layers)
         print(f"       ✅ Se cargaron {len(self.labels)} muestras/videos.")
+        print(f"       ✅ Capas detectadas: {len(self.layers)} capas {self.layers[:5]}...{self.layers[-3:]}")
 
     def apply_dimensionality_reduction(self):
         """
@@ -87,9 +120,15 @@ class ClusteringEvolutionAnimator:
             gc.collect()
 
     def generate_animation(self):
-        """Genera el MP4 renderizando cada capa como un fotograma de la animación."""
+        """
+        Genera el MP4 renderizando cada capa como un fotograma de la animación.
+
+        El nombre del archivo se controla con self.output_name para permitir
+        naming diferenciado por dataset (SSv2, K400) y evitar sobrescribir
+        videos de ejecuciones previas.
+        """
         os.makedirs(self.output_dir, exist_ok=True)
-        video_path = os.path.join(self.output_dir, "clustering_evolution.mp4")
+        video_path = os.path.join(self.output_dir, self.output_name)
         
         print("\n[RENDER] Preparando figura para renderizar la animación MP4...")
         
@@ -144,13 +183,17 @@ def main():
                         help="Ruta a las matrices de activaciones extraídas.")
     parser.add_argument("--output_dir", type=str, default="videos_simulation_clustering",
                         help="Dónde guardar el MP4 resultante.")
+    parser.add_argument("--output_name", type=str, default="clustering_evolution.mp4",
+                        help="Nombre del archivo MP4 de salida. Permite naming diferenciado "
+                             "por dataset/modelo (ej. clustering_evolution_ssv2_40layers.mp4) "
+                             "para no sobrescribir videos existentes.")
     args = parser.parse_args()
 
     if not os.path.exists(args.npz):
         print(f"❌ ERROR: El archivo {args.npz} no existe. Por favor ejecuta run_layer_probing.py primero.")
         sys.exit(1)
 
-    animator = ClusteringEvolutionAnimator(args.npz, args.output_dir)
+    animator = ClusteringEvolutionAnimator(args.npz, args.output_dir, args.output_name)
     animator.load_data()
     animator.apply_dimensionality_reduction()
     animator.generate_animation()

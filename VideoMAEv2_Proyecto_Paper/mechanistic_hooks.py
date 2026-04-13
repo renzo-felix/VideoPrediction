@@ -61,11 +61,12 @@ import torch.nn as nn
 from typing import Dict, List, Optional
 
 
-# Capas estratégicas por defecto: distribución uniforme sobre los 40 bloques
-# Temprano (0-8): features de bajo nivel (bordes, textura, movimiento local)
-# Medio (12-24): representaciones espaciotemporales abstractas
-# Tardío (28-39): codificación semántica y de acción
-DEFAULT_LAYERS = [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 39]
+# Capas a extraer por defecto: las 40 capas completas del ViT-Giant.
+# Escalamos de 11 capas discretas [0,4,8,...,39] a las 40 capas (0-39) para
+# generar una animación de clustering (PCA+UMAP) con evolución semántica fluida.
+# Esto produce 120 combinaciones por video (40 capas × 3 componentes: Residual, MHA, MLP).
+# La ejecución anterior con 11 capas tomó 4h21min (Job 29344); con 40 capas se estima ~16h.
+DEFAULT_LAYERS = list(range(40))
 
 
 class VideoMAEActivationExtractor:
@@ -219,10 +220,24 @@ class VideoMAEActivationExtractor:
 
     def clear_activations(self):
         """
-        Limpia las activaciones almacenadas para liberar memoria.
-        Llamar ENTRE batches para evitar memory leaks.
+        Limpia las activaciones almacenadas y libera memoria agresivamente.
+        Llamar ENTRE videos para evitar memory leaks y fragmentación de VRAM.
+
+        Con 40 capas × 3 componentes, cada forward pass genera ~120 tensores
+        de [1, 2048, 1408] en CPU (tras detach+cpu). Aunque están en CPU, la
+        fragmentación del allocator de CUDA persiste si no se invoca
+        empty_cache() periódicamente. gc.collect() asegura que los tensores
+        de Python cuyas referencias se perdieron sean realmente liberados
+        antes de que CUDA intente reutilizar ese espacio.
         """
         self._activations.clear()
+        # Forzar garbage collection para liberar tensores de Python huérfanos
+        import gc
+        gc.collect()
+        # Liberar caché de CUDA para evitar fragmentación de VRAM en la RTX A6000.
+        # Esto es crítico cuando se procesan 21,202 videos × 120 tensores cada uno.
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
 
     def remove_hooks(self):
         """
