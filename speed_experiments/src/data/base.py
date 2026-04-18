@@ -15,10 +15,26 @@ class VideoDataset(Dataset):
 
     def __getitem__(self, idx):
         row = self.df.iloc[idx]
-        video_path = Path(row['video_path'])
 
-        if not video_path.is_absolute() and self.videos_base_dir:
-            video_path = self.videos_base_dir / video_path
+        if 'video_path' in row:
+            video_path = Path(row['video_path'])
+            if not video_path.is_absolute() and self.videos_base_dir:
+                video_path = self.videos_base_dir / video_path
+
+            if not video_path.exists() and 'category' in row and self.videos_base_dir:
+                video_id = row['video_id']
+                number = video_id.rsplit('_', 1)[-1]
+
+                category = row['category']
+                variation = row.get(category, '')
+
+                if variation:
+                    new_video_id = f"{category}_{variation}_{number}"
+                    video_path = self.videos_base_dir / 'videos' / f"test_{category}" / variation / f"{new_video_id}.mp4"
+        else:
+            if not self.videos_base_dir:
+                raise ValueError("Either video_path column or videos_base_dir must be provided")
+            video_path = self.videos_base_dir / 'videos' / f"{row['video_id']}.mp4"
 
         frames = load_video(video_path, self.img_size, self.num_frames)
         frames = normalize_video(frames)
