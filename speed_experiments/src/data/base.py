@@ -15,6 +15,7 @@ class VideoDataset(Dataset):
 
     def __getitem__(self, idx):
         row = self.df.iloc[idx]
+        video_id = row['video_id']
 
         if 'video_path' in row:
             video_path = Path(row['video_path'])
@@ -22,25 +23,23 @@ class VideoDataset(Dataset):
                 video_path = self.videos_base_dir / video_path
 
             if not video_path.exists() and 'category' in row and self.videos_base_dir:
-                video_id = row['video_id']
                 number = video_id.rsplit('_', 1)[-1]
-
                 category = row['category']
                 variation = row.get(category, '')
 
                 if variation:
-                    new_video_id = f"{category}_{variation}_{number}"
-                    video_path = self.videos_base_dir / 'videos' / f"test_{category}" / variation / f"{new_video_id}.mp4"
+                    video_id = f"{category}_{variation}_{number}"
+                    video_path = self.videos_base_dir / 'videos' / f"test_{category}" / variation / f"{video_id}.mp4"
         else:
             if not self.videos_base_dir:
                 raise ValueError("Either video_path column or videos_base_dir must be provided")
-            video_path = self.videos_base_dir / 'videos' / f"{row['video_id']}.mp4"
+            video_path = self.videos_base_dir / 'videos' / f"{video_id}.mp4"
 
         frames = load_video(video_path, self.img_size, self.num_frames)
         frames = normalize_video(frames)
 
         return {
-            'video_id': row['video_id'],
+            'video_id': video_id,
             'frames': frames,
             'actual_speed': row['actual_speed'],
             'target_speed': row['target_speed']
