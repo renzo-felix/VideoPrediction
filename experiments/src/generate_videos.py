@@ -63,49 +63,106 @@ def generate_training(output_dir):
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    speeds = [5, 15, 25, 35, 45]
+    sizes = ['small', 'medium', 'large']
+    colors = ['red', 'blue', 'green']
+    repetitions = 3
+
     metadata = []
-    speeds = np.linspace(SPEED_RANGE[0], SPEED_RANGE[1], N_TRAINING_VIDEOS)
+    video_counter = 0
 
-    for i, speed in enumerate(tqdm(speeds, desc="Training videos")):
-        video_id = f"ball_{i:03d}"
-        video_path = output_dir / f"{video_id}.mp4"
+    for size_name in sizes:
+        for color_name in colors:
+            for base_speed in speeds:
+                for rep in range(repetitions):
+                    speed_noisy = base_speed + np.random.uniform(-1.5, 1.5)
+                    speed_noisy = np.clip(speed_noisy, 3, 50)
 
-        meta = generate_video("sphere", 1.0, COLOR_MAPPING['red'],
-                             MATERIAL_MAPPING['matte'], None, speed, video_path)
+                    size_scale = SIZE_MAPPING[size_name]
+                    color_rgba = COLOR_MAPPING[color_name]
 
-        metadata.append({
-            "video_id": video_id, "target_speed": speed,
-            "actual_speed": meta["actual_speed"], "speed_std": meta["speed_std"],
-            "num_frames": meta["num_frames"], "video_path": str(video_path)
-        })
+                    video_id = f"sphere_{size_name}_{color_name}_{int(base_speed*10):02d}_{rep:02d}"
+                    video_path = output_dir / f"{video_id}.mp4"
 
-    pd.DataFrame(metadata).to_csv(DATA_DIR / TRAINING_METADATA, index=False)
+                    meta = generate_video("sphere", size_scale, color_rgba,
+                                         MATERIAL_MAPPING['matte'], None, speed_noisy, video_path)
+
+                    metadata.append({
+                        "video_id": video_id,
+                        "target_speed": base_speed,
+                        "actual_speed": meta["actual_speed"],
+                        "speed_std": meta["speed_std"],
+                        "size": size_name,
+                        "color": color_name,
+                        "shape": "sphere",
+                        "material": "matte",
+                        "texture": "plain",
+                        "num_frames": meta["num_frames"],
+                        "video_path": str(video_path)
+                    })
+                    video_counter += 1
+
+    df = pd.DataFrame(metadata)
+    df.to_csv(DATA_DIR / "training_metadata.csv", index=False)
     print(f"✓ Generated {len(metadata)} training videos")
+    print(f"  Speeds: {speeds}")
+    print(f"  Sizes: {sizes}")
+    print(f"  Colors: {colors}")
+    print(f"  Repetitions: {repetitions}")
+    print(f"  Total: {len(speeds)} × {len(sizes)} × {len(colors)} × {repetitions} = {len(metadata)}")
 
 def generate_test(category, output_dir):
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    baseline = {
-        'shape': 'sphere', 'size_scale': 1.0,
-        'color_rgba': COLOR_MAPPING['red'],
-        'material_specular': MATERIAL_MAPPING['matte'],
-        'texture_type': None
-    }
-
     if category == "size":
+        baseline = {
+            'shape': 'cube',
+            'size_scale': 1.0,
+            'color_rgba': COLOR_MAPPING['yellow'],
+            'material_specular': MATERIAL_MAPPING['glossy'],
+            'texture_type': None
+        }
         variations = [{**baseline, 'size_scale': SIZE_MAPPING[s], 'condition': s}
                      for s in OBJECT_PROPERTIES['size']]
     elif category == "color":
+        baseline = {
+            'shape': 'cylinder',
+            'size_scale': SIZE_MAPPING['xlarge'],
+            'color_rgba': COLOR_MAPPING['red'],
+            'material_specular': MATERIAL_MAPPING['metallic'],
+            'texture_type': None
+        }
         variations = [{**baseline, 'color_rgba': COLOR_MAPPING[c], 'condition': c}
                      for c in OBJECT_PROPERTIES['color']]
     elif category == "shape":
+        baseline = {
+            'shape': 'sphere',
+            'size_scale': SIZE_MAPPING['xlarge'],
+            'color_rgba': COLOR_MAPPING['yellow'],
+            'material_specular': MATERIAL_MAPPING['glossy'],
+            'texture_type': None
+        }
         variations = [{**baseline, 'shape': s, 'condition': s}
                      for s in OBJECT_PROPERTIES['shape']]
     elif category == "material":
+        baseline = {
+            'shape': 'capsule',
+            'size_scale': SIZE_MAPPING['xlarge'],
+            'color_rgba': COLOR_MAPPING['yellow'],
+            'material_specular': MATERIAL_MAPPING['matte'],
+            'texture_type': None
+        }
         variations = [{**baseline, 'material_specular': MATERIAL_MAPPING[m], 'condition': m}
                      for m in OBJECT_PROPERTIES['material']]
     elif category == "texture":
+        baseline = {
+            'shape': 'cube',
+            'size_scale': SIZE_MAPPING['xlarge'],
+            'color_rgba': COLOR_MAPPING['yellow'],
+            'material_specular': MATERIAL_MAPPING['matte'],
+            'texture_type': None
+        }
         variations = [{**baseline, 'texture_type': t if t != 'plain' else None, 'condition': t}
                      for t in OBJECT_PROPERTIES['texture']]
     else:

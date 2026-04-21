@@ -73,7 +73,7 @@ def main():
         args.checkpoint = VJEPA_CHECKPOINT if args.model == 'vjepa' else VIDEOMAE_CHECKPOINT
 
     if args.mode == "training":
-        metadata_path = DATA_DIR / TRAINING_METADATA
+        metadata_path = DATA_DIR / "training_metadata.csv"
         output_dir = ACTIVATIONS_DIR / f"training_{args.model}"
     else:
         metadata_path = DATA_DIR / TEST_METADATA_TEMPLATE.format(category=args.category)

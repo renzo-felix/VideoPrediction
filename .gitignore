@@ -54,3 +54,23 @@ VideoMAEv2_Proyecto_Paper/output_dir/
 # ========================
 .vscode/
 .idea/
+
+# ========================
+# Experiments - Generated Content
+# ========================
+# Generated videos
+experiments/data/
+experiments/videos/
+experiments/pybullet_videos_v2/
+experiments/generalization_videos/
+
+# Extracted activations (including metadata)
+experiments/activations/
+
+# Results and figures
+experiments/results/
+experiments/figures/
+
+# Model checkpoints (symlinks are ok, actual models ignored)
+experiments/models/
+experiments/models/*.pt
