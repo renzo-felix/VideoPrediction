@@ -74,3 +74,4 @@ experiments/figures/
 # Model checkpoints (symlinks are ok, actual models ignored)
 experiments/models/
 experiments/models/*.pt
+.claude/worktrees/stoic-mahavira-f3f282/
