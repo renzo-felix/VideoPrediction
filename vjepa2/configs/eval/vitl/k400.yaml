@@ -1,6 +1,6 @@
 cpus_per_task: 16
 eval_name: video_classification_frozen
-folder: /your_folder/evals/vitl/k400
+folder: /home/renzo.felix/VideoPrediction/vjepa2/checkpoints/k400_probe
 mem_per_gpu: 220G
 nodes: 8
 num_workers: 8
@@ -13,8 +13,8 @@ experiment:
     num_probe_blocks: 4
   data:
     dataset_type: VideoDataset
-    dataset_train: /your_data_path/k400_train_paths.csv
-    dataset_val: /your_data_path/k400_val_paths.csv
+    dataset_train: /home/renzo.felix/VideoPrediction/vjepa2/data/K400/train.csv
+    dataset_val: /home/renzo.felix/VideoPrediction/vjepa2/data/K400/val.csv
     frame_step: 4
     frames_per_clip: 16
     num_classes: 400
@@ -148,7 +148,7 @@ experiment:
     use_bfloat16: true
     use_pos_embed: false
 model_kwargs:
-  checkpoint: /your_vjepa2_checkpoints/vitl.pt
+  checkpoint: /home/renzo.felix/VideoPrediction/vjepa2/checkpoints/vitl.pt
   module_name: evals.video_classification_frozen.modelcustom.vit_encoder_multiclip
   pretrain_kwargs:
     encoder:

@@ -1,0 +1,22 @@
+/home/renzo.felix/miniconda3/envs/vjepa2-312/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Process Process-1:
+Traceback (most recent call last):
+  File "/home/renzo.felix/miniconda3/envs/vjepa2-312/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/home/renzo.felix/miniconda3/envs/vjepa2-312/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/renzo.felix/VideoPrediction/vjepa2/evals/main.py", line 90, in process_main
+    eval_main(params["eval_name"], args_eval=params)
+  File "/home/renzo.felix/VideoPrediction/vjepa2/evals/scaffold.py", line 19, in main
+    return importlib.import_module(import_path).main(args_eval=args_eval, resume_preempt=resume_preempt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/renzo.felix/VideoPrediction/vjepa2/evals/video_classification_frozen/eval.py", line 130, in main
+    os.makedirs(folder, exist_ok=True)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 215, in makedirs
+  [Previous line repeated 2 more times]
+  File "<frozen os>", line 225, in makedirs
+PermissionError: [Errno 13] Permission denied: '/your_folder'
+[rank0]:[W219 18:08:13.025557331 ProcessGroupNCCL.cpp:1553] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

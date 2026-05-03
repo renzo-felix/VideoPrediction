@@ -1,0 +1,1303 @@
+/home/renzo.felix/miniconda3/envs/vjepa2-312/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/renzo.felix/VideoPrediction/vjepa2/evals/video_classification_frozen/eval.py:486: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scalers += [torch.cuda.amp.GradScaler() if use_bfloat16 else None]
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9356ac0] moov atom not found
+[15:07:15] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/_Nu9p5SdJss_000024_000034.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa34b140] moov atom not found
+[15:07:36] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/6rxdq0ebecA_000016_000026.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e32600] moov atom not found
+[15:07:56] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/WKB5X-ESkiw_000004_000014.mp4, Invalid data found when processing input
+/home/renzo.felix/VideoPrediction/vjepa2/evals/video_classification_frozen/eval.py:306: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=torch.float16, enabled=use_bfloat16):
+/home/renzo.felix/miniconda3/envs/vjepa2-312/lib/python3.12/contextlib.py:105: FutureWarning: `torch.backends.cuda.sdp_kernel()` is deprecated. In the future, this context manager will be removed. Please see `torch.nn.attention.sdpa_kernel()` for the new context manager, with updated signature.
+  self.gen = func(*args, **kwds)
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e28d80] moov atom not found
+[15:45:45] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/D53mh3_yC7M_000004_000014.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x8823c80] moov atom not found
+[15:52:28] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/F6mZNsAAgfY_000001_000011.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e27980] moov atom not found
+[15:53:26] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/myaj4rly0Rw_000014_000024.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac06d80] moov atom not found
+[16:19:41] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/66qvy71RDXg_000004_000014.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x7bb0dc0] moov atom not found
+[16:36:32] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/0LCw3Eo632w_000121_000131.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9eef4c0] moov atom not found
+[16:55:48] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/-aMDT2_KljM_000025_000035.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb1ed880] moov atom not found
+[17:08:35] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/uhUVeqZcabg_000034_000044.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x116aa840] moov atom not found
+[17:09:04] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ni4JaYu7PhU_000014_000024.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa792b00] moov atom not found
+[17:14:48] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/yuTPhpL3gjo_000017_000027.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e087c0] moov atom not found
+[17:48:22] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Y0O0QokIPqw_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[17:50:47] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/UW4bmn6Invg_000376_000386.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xadaf1c0] moov atom not found
+[17:55:55] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/5bDwP52nP_Q_002223_002233.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbaed9c0] moov atom not found
+[18:28:55] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/zqGv0uvQ8Jg_000101_000111.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa76b140] moov atom not found
+[18:29:32] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/4Y4FM_Ajl9s_000004_000014.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa76b140] moov atom not found
+[18:44:42] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ewy90JudWmU_000472_000482.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa2cdec0] moov atom not found
+[18:48:31] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/IbCsmBj8xi0_000256_000266.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9f26b80] moov atom not found
+[18:50:04] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ZzqhxM8NQ-I_000043_000053.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x7bb9700] moov atom not found
+[18:53:33] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/g_7koBIJTp4_000107_000117.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e13e00] moov atom not found
+[19:05:35] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/JiwHBHlRA2o_000004_000014.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e0a480] moov atom not found
+[19:12:31] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/hFJZzQTkebM_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbaed9c0] moov atom not found
+[19:18:51] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/_VW0wibeg-s_000047_000057.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e101c0] moov atom not found
+[19:20:19] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/2YXxYpXfc4o_000000_000010.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa234e40] moov atom not found
+[19:38:33] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/AfPIdPUS3fw_000296_000306.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb214480] moov atom not found
+[20:05:26] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/yEonhPDVsTk_000008_000018.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xaab6340] moov atom not found
+[20:18:40] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/u08ub8Yt5w4_000006_000016.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[20:22:29] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Y7Eex6wpzqk_000059_000069.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb7067c0] moov atom not found
+[20:23:35] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/5JgI-KgLPMQ_000065_000075.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xaecc4c0] moov atom not found
+[20:50:50] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/CjOpaNJo6Ps_000004_000014.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbf0c4c0] moov atom not found
+[21:08:07] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/GZqePlfZJ3g_000015_000025.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacb3700] moov atom not found
+[21:18:44] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/h-f9_BZKLdY_000000_000010.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xab14300] moov atom not found
+[21:23:13] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/4T2mQzr80YM_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa27e100] moov atom not found
+[21:30:00] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/pgpiuG8VweA_000024_000034.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xabde000] moov atom not found
+[21:30:31] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/gB2OLXZXIJU_000027_000037.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb704cc0] moov atom not found
+[21:47:44] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/8obeXlJiqsg_000092_000102.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb704cc0] moov atom not found
+[21:47:44] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/DZ5q87Y1YUQ_000035_000045.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbaed9c0] moov atom not found
+[21:50:03] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ZUxpsvQkZdM_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa77a200] moov atom not found
+[22:10:39] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/2cLoabhS6bI_000069_000079.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9eef4c0] moov atom not found
+[22:48:35] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/KYuj5gDnQSM_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa207680] moov atom not found
+[23:01:42] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/8XgKTpaOFWU_000068_000078.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9f2e300] moov atom not found
+[23:03:18] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/OQrwfvAluAo_000121_000131.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e0a480] moov atom not found
+[23:18:23] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/HFyPM6cJhzM_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x1b4416c0] moov atom not found
+[23:42:26] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Xwn64YQ4h8E_001008_001018.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa26b9c0] moov atom not found
+[23:46:21] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/8FmnXvamI4g_000014_000024.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa26b9c0] moov atom not found
+[00:06:05] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/iAijYTe79Lw_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbaed9c0] moov atom not found
+[00:06:24] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ViEUyc0lzxo_000017_000027.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad90180] moov atom not found
+[00:07:22] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/0l6q5qOZCp8_000023_000033.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xabe5880] moov atom not found
+[00:09:02] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/na_JhFZ3aYg_000037_000047.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacd9500] moov atom not found
+[00:39:33] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/joj-cbV11kk_000000_000010.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9eef4c0] moov atom not found
+[00:49:51] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/AgYhFPNR-0c_000056_000066.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa7ed740] moov atom not found
+[00:59:09] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/nrBeiTS4Heg_000047_000057.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacd9500] moov atom not found
+[01:06:48] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/xYohNFRotHE_000052_000062.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbaed9c0] moov atom not found
+[01:20:40] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/5jOx1vJygD0_000192_000202.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xabf5380] moov atom not found
+[01:23:18] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/eSebM1vnzAU_000018_000028.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbaed9c0] moov atom not found
+[02:00:01] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/HVMWuhILPHg_000004_000014.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e13e00] moov atom not found
+[02:09:00] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/SkG1rgNMyVw_000046_000056.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbaed9c0] moov atom not found
+[02:17:31] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/lJu73F2p8_s_000006_000016.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbbae5c0] moov atom not found
+[02:24:52] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/oCq5WLWCEyg_000277_000287.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e6bb40] moov atom not found
+[02:41:07] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/JnUIs0qS9aM_000018_000028.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e32600] moov atom not found
+[02:41:07] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ALYQac0lnOI_000144_000154.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad8b780] moov atom not found
+[02:49:00] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/u5aonO748Hc_000106_000116.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e32600] moov atom not found
+[03:15:23] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/N9dE4YSmpRs_000007_000017.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbaf5880] moov atom not found
+[03:28:58] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/IziJobnxIu0_000005_000015.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[03:40:24] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/vSdB303n-hI_000125_000135.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xadb3200] moov atom not found
+[03:40:56] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/gBMVBL5NNaY_000006_000016.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e32600] moov atom not found
+[03:52:37] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/bhYpNDddQ3g_000024_000034.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa77c140] moov atom not found
+[03:54:27] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Vo7aYDgVh-4_000103_000113.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa359280] moov atom not found
+[04:20:32] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/1oyrWyrgTws_000056_000066.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbaed9c0] moov atom not found
+[04:45:32] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/U95h17D2EJ4_000011_000021.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad87700] moov atom not found
+[04:51:24] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/WLp9lvDXfNU_000047_000057.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac03fc0] moov atom not found
+[05:08:26] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/09sCD17AOyY_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xade5100] moov atom not found
+[05:17:13] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/L6wXjStz9EU_000070_000080.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbaed9c0] moov atom not found
+[05:17:40] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/vZZ9sW4VJOo_000062_000072.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e13540] moov atom not found
+[05:19:22] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/okWV85kt0c8_000004_000014.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb1f7980] moov atom not found
+[05:44:15] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/f5xHnROv2CE_000022_000032.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa359280] moov atom not found
+[05:49:27] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/bdl2Klb8jsc_000018_000028.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9eef4c0] moov atom not found
+[05:51:18] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/IdZvkHM-YaY_000047_000057.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb27f940] moov atom not found
+[05:51:37] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/cAFx29wS_xo_000014_000024.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x89fcd00] moov atom not found
+[06:03:05] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/rbmI8nSiI3g_000013_000023.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb20cc80] moov atom not found
+[06:06:40] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/iVsscJC94-c_000225_000235.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa2fc180] moov atom not found
+[06:08:43] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/OUIpYfvNf8o_000066_000076.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9ee7b40] moov atom not found
+[06:20:58] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/_arlKRU1654_000105_000115.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xaca2380] moov atom not found
+[06:27:43] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/KMpiUOwMbeU_000190_000200.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xaca2380] moov atom not found
+[06:30:19] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/eH7c1wyjb1A_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb27f940] moov atom not found
+[06:36:06] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/YXt7P6WimyY_000075_000085.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad1ba40] moov atom not found
+[06:38:59] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Dr_hh7aTSbs_000400_000410.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacd5800] moov atom not found
+[07:00:07] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/blypaSMkwE8_000011_000021.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x89fcd00] moov atom not found
+[07:17:03] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/kFhNe0y1lMk_000122_000132.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbaed9c0] moov atom not found
+[07:21:03] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/FFLCpHAQjUQ_000017_000027.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad2e980] moov atom not found
+[07:36:44] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/u6kDW8Izy2o_000019_000029.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbaed9c0] moov atom not found
+[07:43:13] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/JFYGlBfYEoI_000105_000115.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e71180] moov atom not found
+[07:52:07] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/yHG4Wpu7rMU_000024_000034.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad8b700] moov atom not found
+[07:55:14] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/-bVg1oClyj4_000001_000011.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac03fc0] moov atom not found
+[08:13:16] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Zs-bAGJpLlc_000015_000025.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9f30680] moov atom not found
+[08:13:59] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/4EMKCREOeDI_000004_000014.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[08:24:28] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/4tm7iT3OWWs_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac03fc0] moov atom not found
+[08:35:13] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/QqnuLcmsEJQ_000027_000037.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xaf36280] moov atom not found
+[08:42:40] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/lOpYfFowoxA_000016_000026.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa359280] moov atom not found
+[08:56:45] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/fXRNY6-s-7U_000112_000122.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e32600] moov atom not found
+[09:00:57] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/iv9Edst3is8_000035_000045.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac03fc0] moov atom not found
+[09:14:36] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Dx4Hh-VjAj4_000000_000010.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa359280] moov atom not found
+[09:38:47] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/q8h6lV0OTy8_000000_000010.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbafe040] moov atom not found
+[09:58:41] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ZrBOvCVd5j8_000094_000104.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb1f8700] moov atom not found
+[10:00:27] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/IO7EbEhwIl0_000008_000018.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e32600] moov atom not found
+[10:46:42] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ZzeZ9Y722ys_000000_000010.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa359280] moov atom not found
+[10:47:32] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Thi3hp--Oj8_000007_000017.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad95ac0] moov atom not found
+[10:48:53] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/pN2gqelr5_0_000001_000011.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa28b500] moov atom not found
+[10:50:53] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/VNe0EsuOLpo_000007_000017.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac03fc0] moov atom not found
+[10:55:36] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/jI30QR0TmXc_000008_000018.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb5e4d40] moov atom not found
+[11:07:38] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/vku_JUwuswI_000015_000025.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[11:19:06] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/7owhnh1jHHE_000015_000025.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb27f940] moov atom not found
+[11:38:59] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/X9D53Pr4t3w_000005_000015.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa359280] moov atom not found
+[11:39:10] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Qj5PFGajTQg_000110_000120.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacd4900] moov atom not found
+[11:43:01] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/NzLnIISzejg_000078_000088.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e23340] moov atom not found
+[11:43:21] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/UXtdeP2HQ8o_000029_000039.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6e90c0] moov atom not found
+[12:06:47] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/k7awEbuC4Ig_000053_000063.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa7e0680] moov atom not found
+[12:27:00] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/b-mxRpRVIm8_000117_000127.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa796ac0] moov atom not found
+[12:32:04] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/03idfoav5Zk_000009_000019.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x12cbbd00] moov atom not found
+[12:43:37] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/eyHRwlurmGc_000040_000050.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa7503c0] moov atom not found
+[12:51:24] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/wz4YmOux-eE_000009_000019.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa359280] moov atom not found
+[12:52:59] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/AaT-4Ur25e8_000004_000014.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad3abc0] moov atom not found
+[13:04:00] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/z7IYnNzZV6A_000024_000034.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa697f80] moov atom not found
+[13:08:39] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/4i1b6NQ9NKs_000001_000011.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad3abc0] moov atom not found
+[13:23:47] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/MVZlxI4ZI4k_000204_000214.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6e90c0] moov atom not found
+[13:42:45] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/e_0pDYfL3Lw_000024_000034.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6e90c0] moov atom not found
+[13:49:50] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ePXRsVP4VB0_000205_000215.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa7dfc00] moov atom not found
+[13:52:52] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/aDJZlI2_L8s_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa7df100] moov atom not found
+[14:17:32] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/cZmCqmiL_DM_000008_000018.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xaddafc0] moov atom not found
+[14:21:13] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/XgOy1rkzLXw_000175_000185.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6e90c0] moov atom not found
+[14:46:24] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/OnRor82Huqc_000067_000077.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[14:55:29] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/KFSKePrhWSE_000006_000016.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xadadf00] moov atom not found
+[14:58:00] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/5oiMA6PATUQ_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9f3f740] moov atom not found
+[15:07:20] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/UNeaG3UZTSo_000067_000077.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[15:24:45] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/MTo50ReVNmU_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x1a4ae2c0] moov atom not found
+[15:51:13] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/5rzeTlG2Ymk_000120_000130.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e16c40] moov atom not found
+[15:51:45] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/aa2KIxkCSe8_000051_000061.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6e90c0] moov atom not found
+[15:52:41] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/0dGQUlhspug_000090_000100.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6e90c0] moov atom not found
+[16:56:33] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/aqFX68I6MYo_000141_000151.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa7696c0] moov atom not found
+[17:02:12] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/FyeRVvZpP14_000093_000103.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad9dd40] moov atom not found
+[17:10:41] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/VsUpMhmoUTY_000046_000056.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e6de40] moov atom not found
+[17:15:27] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/7QKa3IfG0Zk_000032_000042.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad9dd40] moov atom not found
+[17:18:24] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/wIouQPNHLGE_000131_000141.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9f41b80] moov atom not found
+[17:24:59] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/N74EWF0fs5c_000182_000192.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9f41b80] moov atom not found
+[17:24:59] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/--PyMoD3_eg_000020_000030.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[17:54:48] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/gBoebgAjbVw_000013_000023.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa58b5c0] moov atom not found
+[18:00:13] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/XHpWsqkxi4Y_000143_000153.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad9dd40] moov atom not found
+[18:36:40] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/DlDDbtKKrnM_000477_000487.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa359280] moov atom not found
+[18:39:42] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/qgNNsVx-EVM_000402_000412.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6e90c0] moov atom not found
+[18:52:32] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/q2Xf8nQarzA_000196_000206.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9f41b80] moov atom not found
+[18:58:17] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/vqNBRukEU68_000115_000125.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9ea7280] moov atom not found
+[19:01:01] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/n1IWQW-v5qA_000120_000130.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa309a00] moov atom not found
+[19:01:32] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/mESS6DKbbj8_000006_000016.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa359280] moov atom not found
+[19:01:33] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/dxal8BT5a-Q_000189_000199.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e14ac0] moov atom not found
+[19:08:25] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/nMVRWCVUDWo_000133_000143.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa795ec0] moov atom not found
+[19:12:16] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/akOQs4_QQps_000141_000151.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xada9700] moov atom not found
+[19:24:59] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/J9E6xwg0BOE_000025_000035.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac03fc0] moov atom not found
+[19:31:54] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/lWOeqePZVZ4_000012_000022.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xab195c0] moov atom not found
+[19:31:54] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ytD62MN4Av0_000024_000034.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9f41b80] moov atom not found
+[20:29:04] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/A-Y7Do0Nngc_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9ee3e80] moov atom not found
+[20:53:37] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/KAxtAvkDynI_000093_000103.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa359280] moov atom not found
+[21:01:56] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/46ejM7eV4_I_000019_000029.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[21:03:45] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/duve-EwH7mY_000065_000075.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa267880] moov atom not found
+[21:26:27] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/tt4Q4gl9m_0_000000_000010.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xabf72c0] moov atom not found
+[21:37:51] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Swal_11jIvw_000066_000076.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7cc00] moov atom not found
+[22:00:41] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/YDstqPEIkn4_000145_000155.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad9dd40] moov atom not found
+[22:17:43] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/69RyHJpLFII_000044_000054.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e0a480] moov atom not found
+[22:19:42] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/S5guP2ujCAI_000013_000023.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad9dd40] moov atom not found
+[22:42:16] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/QuqMdgHO_Xk_000000_000010.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa351e00] moov atom not found
+[22:59:46] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/j7akDoFCk1k_000111_000121.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xabf72c0] moov atom not found
+[23:01:30] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/YhW1gfEJ_Hc_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac04d40] moov atom not found
+[23:10:21] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/omxsa6GBpJU_000137_000147.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa7e24c0] moov atom not found
+[23:20:18] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/cNpxBWnwPs8_000031_000041.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac04d40] moov atom not found
+[23:22:28] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/cV_fnQ4JDUs_000015_000025.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa3673c0] moov atom not found
+[23:41:00] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/1sn8u-rQRas_000000_000010.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9f41b80] moov atom not found
+[23:50:46] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/wEsqqYShuzE_000016_000026.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac8d600] moov atom not found
+[00:36:32] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/WYs9NyaCOQY_000005_000015.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac7ce40] moov atom not found
+[00:53:03] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/osfyYyElUUM_000031_000041.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac27100] moov atom not found
+[00:53:03] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/5mA5TXNRs1c_000082_000092.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[01:04:18] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/vTpr3AYp5jA_000192_000202.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad9dd40] moov atom not found
+[01:26:31] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Vdd8UpwQLqY_000058_000068.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac7a0c0] moov atom not found
+[01:28:11] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/j5mK9xzssfM_000191_000201.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa1fcc80] moov atom not found
+[01:56:04] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/PUsQ9nDqJfA_000028_000038.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[02:07:42] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/5hP3jrkcwoo_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6e90c0] moov atom not found
+[02:40:36] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/fQUeQS47mn0_000020_000030.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e13e00] moov atom not found
+[03:11:20] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/nRDx20O3oWY_000354_000364.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6e90c0] moov atom not found
+[03:22:04] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/IU56CprdKfs_000128_000138.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6e90c0] moov atom not found
+[03:29:26] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/s5gtLdlJ8CU_000011_000021.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x8821bc0] moov atom not found
+[03:42:01] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Qa3fKRkB5nU_000020_000030.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e31840] moov atom not found
+[03:42:56] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/IHQ2BRP5yyg_000021_000031.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa77f880] moov atom not found
+[04:04:24] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/gRpJABiJK_Y_000100_000110.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacc8540] moov atom not found
+[04:11:52] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/9TvxED8oHr8_000023_000033.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e1e400] moov atom not found
+[04:17:58] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/zjLBCUc6IAc_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[04:19:54] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/snYNPOZvVJY_000306_000316.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacc8540] moov atom not found
+[05:00:50] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/tfxoVsilPQM_000027_000037.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacc8540] moov atom not found
+[05:05:41] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/MArgX8qIbuA_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacc8540] moov atom not found
+[05:32:36] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ZanYg6gppKs_000001_000011.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbb23980] moov atom not found
+[06:05:52] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/FhnT_42bV7M_000021_000031.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xab75940] moov atom not found
+[06:18:29] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/lsQcW0cWCQw_000021_000031.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[06:49:15] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/IBMAxVwVjeM_000008_000018.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xab89f40] moov atom not found
+[06:55:15] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/zgYCLW7tbyA_000026_000036.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9f41b80] moov atom not found
+[07:03:28] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/O4b8H4KGDiE_000065_000075.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacd6300] moov atom not found
+[07:15:15] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/RSknwmBemZE_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac7a0c0] moov atom not found
+[07:32:33] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/h_hR56yfr8s_000062_000072.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xab0e380] moov atom not found
+[07:34:19] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/776vz7-p5Q4_000091_000101.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[07:45:15] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/UQbUtE2nqJ4_000086_000096.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[07:47:47] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ybOAK6x0cK4_000004_000014.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9f2dc40] moov atom not found
+[07:52:19] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/D9joSK-bcy0_000000_000010.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa254c80] moov atom not found
+[08:32:26] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/2E0x_34Fnps_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xadcc2c0] moov atom not found
+[08:36:50] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/PhdgH1iuKoI_000000_000010.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac90c80] moov atom not found
+[09:05:15] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/UP2RB7qhBig_000196_000206.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb21ca40] moov atom not found
+[09:11:17] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/xrs30g5bWck_000004_000014.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e75200] moov atom not found
+[09:49:42] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/JoVSTDLSKS4_000037_000047.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb21df00] moov atom not found
+[09:52:47] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/aKf0_XYzGKc_000022_000032.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xada2740] moov atom not found
+[10:04:58] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/_mOYQ4Kzz8g_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb27f940] moov atom not found
+[10:19:34] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/95hjEX1nl_g_000101_000111.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb036080] moov atom not found
+[10:54:51] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/HqBTWiT-Kk4_000083_000093.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa774700] moov atom not found
+[10:57:32] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/H3QxS-_n-vY_000017_000027.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x41e14340] moov atom not found
+[11:03:24] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/7ViVkSa_hvE_000009_000019.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9df4580] moov atom not found
+[11:05:49] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/hK6Z0yS6lcA_000017_000027.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac04d00] moov atom not found
+[11:09:20] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/9mK8ji2O3-g_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xaecc4c0] moov atom not found
+[11:12:01] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/cvpqttxD0jw_000007_000017.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa694940] moov atom not found
+[11:26:54] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ASyuY5UwMJ8_000034_000044.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad93540] moov atom not found
+[11:35:20] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/8-0u0JLYRRM_000010_000020.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x8a74280] moov atom not found
+[11:42:49] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/-I4Ggi6-QOE_000054_000064.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa21e800] moov atom not found
+[11:50:29] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/2ICWjxvgVYU_000001_000011.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad99500] moov atom not found
+[11:52:35] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/3jMoKDs3VUs_000107_000117.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad69480] moov atom not found
+[11:54:57] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/GZW4WMWi_RY_000053_000063.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x41e14340] moov atom not found
+[12:06:35] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ZGax5VDhv6k_000040_000050.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb7018c0] moov atom not found
+[12:15:06] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/py_nxJvq_eY_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xace9800] moov atom not found
+[12:28:18] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/MXdCSAqTraw_000022_000032.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9df4580] moov atom not found
+[12:38:43] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/cSyA54a8ioo_000010_000020.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb1c7880] moov atom not found
+[12:50:16] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/q1SCyp6fqzQ_000084_000094.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacd2000] moov atom not found
+[13:05:01] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/df9VQ7RM70g_000017_000027.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7d380] moov atom not found
+[13:17:21] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/8C_16syb3zU_000014_000024.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6e90c0] moov atom not found
+[13:26:09] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/-arMM4gzPIg_000079_000089.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb036080] moov atom not found
+[13:43:42] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ESmoJuNB1l4_000009_000019.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7cbc0] moov atom not found
+[13:48:55] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ImBRZ3392o4_000092_000102.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa1fcc80] moov atom not found
+[13:52:34] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/isX-Ub-2Je8_002392_002402.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad83900] moov atom not found
+[14:01:12] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/bqWPAzckTds_000138_000148.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa7604c0] moov atom not found
+[14:42:22] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/M3V7WTM6o3Y_000004_000014.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacd2000] moov atom not found
+[14:59:55] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/nr8AafzBMTY_000013_000023.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[15:07:51] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Kf-CIEKxrNs_000004_000014.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6e90c0] moov atom not found
+[15:23:28] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/RIn4Y_F2F8o_000020_000030.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xadb9980] moov atom not found
+[15:44:45] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/8skDtU2JfPo_000125_000135.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6e90c0] moov atom not found
+[15:50:12] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/BAL-1VtWt7U_000017_000027.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacd2000] moov atom not found
+[15:53:43] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ytrQs4tSR8c_000126_000136.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xadb9980] moov atom not found
+[15:57:08] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/oeYlusvzxRA_000004_000014.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xab75940] moov atom not found
+[16:02:57] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/gAATzBRFDi4_000033_000043.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x802ec00] moov atom not found
+[16:20:16] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/7yplZJxlhlo_000089_000099.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa7604c0] moov atom not found
+[16:32:33] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/rba-NkJjSNg_000167_000177.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6cea00] moov atom not found
+[16:39:02] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/3cPmc2H3hb8_000262_000272.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x18dce240] moov atom not found
+[16:39:02] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/MsLVRHNctc8_000000_000010.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb687a80] moov atom not found
+[16:54:56] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/pmBBz9S_fec_000000_000010.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xace2d40] moov atom not found
+[17:48:17] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/9qXwehMoX7o_000057_000067.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xab75940] moov atom not found
+[17:50:21] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/rEEK451d69E_000037_000047.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa7604c0] moov atom not found
+[18:09:56] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/vruGC0MtQmA_000001_000011.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9f41b80] moov atom not found
+[18:15:29] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Pcb7Rh0sPqo_000162_000172.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e1c840] moov atom not found
+[19:16:40] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Yr90-pw-5N0_000106_000116.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb208580] moov atom not found
+[19:43:57] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/yoKmdZNwio8_000045_000055.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb208580] moov atom not found
+[19:46:35] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/U5qt8MejCAo_000086_000096.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4a503ac0] moov atom not found
+[19:49:23] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/uJWZo2p9Vj8_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e0ce00] moov atom not found
+[20:07:43] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/uNlWaIqndyw_000072_000082.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[20:08:10] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/MtZTBpcgIak_000008_000018.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa7604c0] moov atom not found
+[20:38:54] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/YPxtuJae7Nk_000386_000396.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6e90c0] moov atom not found
+[20:53:00] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/LMhh6Y_zGX8_000092_000102.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6e90c0] moov atom not found
+[20:55:17] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/4Jw0XCyAAms_000129_000139.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[21:04:06] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/iY5o62SKSxg_000091_000101.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e6de40] moov atom not found
+[21:23:43] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/wd9Gq_cyEEA_000024_000034.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad9dd40] moov atom not found
+[21:38:43] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/bDA4izglrwk_000498_000508.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e0ce00] moov atom not found
+[21:52:57] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/hjONYhNpHbo_000040_000050.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa794f40] moov atom not found
+[22:23:55] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/j_r4lSPOUwc_000038_000048.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[22:48:59] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/5JKeHp_FjJA_000050_000060.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4a503ac0] moov atom not found
+[22:59:22] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/7xz6mhYJAUs_000057_000067.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4a503ac0] moov atom not found
+[23:23:50] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/bHNHI7SETO4_000216_000226.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacbc5c0] moov atom not found
+[23:51:58] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/E2kUsRIj4tM_000317_000327.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacd2000] moov atom not found
+[00:01:42] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/HHXoNLSnlJA_000058_000068.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa254c80] moov atom not found
+[00:15:04] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/lkWIW-waOkY_000049_000059.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e0ce00] moov atom not found
+[00:26:19] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/8H-zHneEbVM_000092_000102.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xadad500] moov atom not found
+[00:29:21] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/YNiYsO6GL3s_000022_000032.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa234180] moov atom not found
+[00:39:25] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/_g9CmeIsrEY_000000_000010.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa7604c0] moov atom not found
+[00:50:25] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/HFfQLFS4WlU_000096_000106.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb1ec940] moov atom not found
+[00:53:58] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/pUVcYzNx5Qs_000017_000027.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xabdf200] moov atom not found
+[01:09:21] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/BG3oIuRKSs4_001583_001593.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e10a80] moov atom not found
+[01:27:37] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/J5hBXU_zBCo_000014_000024.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xab195c0] moov atom not found
+[01:41:02] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/cU0liih_qNY_000014_000024.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7eb40] moov atom not found
+[02:16:41] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/bLbHLoyuVMM_000029_000039.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xab75940] moov atom not found
+[02:51:56] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/PvPbihnQU6U_000125_000135.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7eb40] moov atom not found
+[03:27:37] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/b058PKrfI68_000059_000069.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e04740] moov atom not found
+[03:46:47] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/IogrLKkY69Q_000014_000024.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6e90c0] moov atom not found
+[03:54:51] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/tHdVVDV5I00_000081_000091.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacd6bc0] moov atom not found
+[03:58:14] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/CUcBIjSUskA_000004_000014.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa234180] moov atom not found
+[04:04:18] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/3rAQLcb4bo0_000012_000022.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6e90c0] moov atom not found
+[04:09:43] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/O0E-SrZkYSQ_000000_000010.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacd2000] moov atom not found
+[04:20:09] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/6cOe_F_ants_000021_000031.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xab75940] moov atom not found
+[04:34:11] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/-hmpR3P-TMc_000046_000056.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa234180] moov atom not found
+[04:43:26] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/z5wvL4Xssa0_000042_000052.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa712540] moov atom not found
+[04:56:39] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/CukaHTiUEoU_000097_000107.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacd2000] moov atom not found
+[05:26:10] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Xi9-DWF4hXM_000012_000022.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacd2000] moov atom not found
+[05:45:40] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ce2mbp2dtQU_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacd2000] moov atom not found
+[05:53:05] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/oKWcI83DuPc_000004_000014.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacc8540] moov atom not found
+[06:22:05] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/TZzjAu4NOS0_000050_000060.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9f27bc0] moov atom not found
+[07:03:49] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/3IzV37Qgrl8_000028_000038.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7c140] moov atom not found
+[07:48:18] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/uG8gyL3NZj0_000015_000025.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xab75940] moov atom not found
+[08:13:40] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/c_9NtmQo7yw_000044_000054.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6e90c0] moov atom not found
+[08:28:06] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/qIffN1ZwMqo_000020_000030.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6e90c0] moov atom not found
+[08:49:51] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/I8En7sIdJP0_000011_000021.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e14140] moov atom not found
+[08:51:34] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/bYvUcDCMh94_000030_000040.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x80304c0] moov atom not found
+[09:05:09] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/du6bfkBEfVs_000155_000165.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacd2000] moov atom not found
+[09:15:08] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/QlMKcuxijOM_000027_000037.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa234180] moov atom not found
+[09:33:27] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/0eahjw_NZ44_000041_000051.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9f41b80] moov atom not found
+[09:34:58] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/qycbhfyw6Zs_000029_000039.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9ed2d80] moov atom not found
+[09:37:44] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Vrw4zX1mpO8_000009_000019.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xace3380] moov atom not found
+[09:39:48] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Cdhx7LnZJkg_000011_000021.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa78fe80] moov atom not found
+[09:41:38] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/qkcaW2UGqvg_000014_000024.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6e90c0] moov atom not found
+[09:53:13] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/1fiHecw9rLU_000126_000136.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa357500] moov atom not found
+[10:05:31] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/zWUmolwz_0E_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9ea3f00] moov atom not found
+[10:21:16] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/5O-0xQQvZTM_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xab75940] moov atom not found
+[10:27:39] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/vMVkW9Sh4EA_000099_000109.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7c140] moov atom not found
+[11:10:59] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/mzanX0Y3b88_000040_000050.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xace3c00] moov atom not found
+[11:12:19] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/a_tovrbFSrE_000005_000015.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb036080] moov atom not found
+[11:16:23] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/RnI75fEM-_Y_000121_000131.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xace3c00] moov atom not found
+[11:22:07] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/0oNfg5s-j5E_000077_000087.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbae5b40] moov atom not found
+[11:33:25] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/_nRALcEFFBk_000007_000017.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e1a680] moov atom not found
+[11:36:55] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Q6FrxOkIsbk_000012_000022.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa234180] moov atom not found
+[11:40:23] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/NZszAcciOlU_000025_000035.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa234180] moov atom not found
+[11:45:06] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/xrPrnzvWUkY_000015_000025.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e23340] moov atom not found
+[12:03:44] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/XLJXratvUGk_000021_000031.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa78fe80] moov atom not found
+[12:17:35] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/aAKRX50XiXo_000114_000124.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9f41b80] moov atom not found
+[12:20:45] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/_J-xg-ailCs_000001_000011.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9efa240] moov atom not found
+[12:42:39] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/N0iZ6tF4LAM_000020_000030.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6ece40] moov atom not found
+[13:05:41] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/zMD2vzuac4I_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa6ab6c0] moov atom not found
+[13:16:02] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/PREz5XiiXg0_000098_000108.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9ed2dc0] moov atom not found
+[13:38:54] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Vy9ucXKeHp4_000101_000111.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6e90c0] moov atom not found
+[14:01:44] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/330ohp6caWE_000028_000038.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9f55a80] moov atom not found
+[14:10:19] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/PGcBSbwz1T8_000071_000081.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xabe1400] moov atom not found
+[14:29:01] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Vpvs1HfG2PA_000093_000103.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xaccd680] moov atom not found
+[14:39:11] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/70yrgVsTepQ_000086_000096.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[14:47:07] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/lowyVqTRIiw_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa78fe80] moov atom not found
+[14:58:24] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/zwv1q8B6mQI_000026_000036.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacd2000] moov atom not found
+[15:05:59] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ylptXLZDFhc_000020_000030.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6e90c0] moov atom not found
+[15:09:56] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/VZe1hJTLML0_000324_000334.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa78fe80] moov atom not found
+[15:13:12] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/43QsFIjzMUw_000120_000130.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9f55a80] moov atom not found
+[15:23:23] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/EApB0DJ3ECg_000172_000182.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa78fe80] moov atom not found
+[15:25:10] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/aCcAcCE7Ixo_000034_000044.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa78fe80] moov atom not found
+[15:42:16] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/6Mo5Vng0Nso_000075_000085.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa78fe80] moov atom not found
+[16:04:17] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/iX4H56HARuI_000180_000190.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacd2000] moov atom not found
+[16:04:27] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/c2RSx8fLKYM_000156_000166.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa78fe80] moov atom not found
+[16:09:05] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/kGXnhbLnB4I_000044_000054.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6e90c0] moov atom not found
+[16:10:57] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/oTBADrUOkV8_000105_000115.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9ea7280] moov atom not found
+[16:14:48] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/PvhuF_3MSoU_000174_000184.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xab75940] moov atom not found
+[16:16:02] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/32fHmaSLEyw_000062_000072.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9f41b80] moov atom not found
+[16:43:45] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/F0fIXBVwm0M_000008_000018.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[16:44:02] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/FWkYycqtmxs_000007_000017.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa28e2c0] moov atom not found
+[16:57:53] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/aBERM0iKmig_000449_000459.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x191b9f80] moov atom not found
+[17:07:28] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/SRcuV0Cl81s_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6e90c0] moov atom not found
+[17:19:13] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/754bt7a6-nE_000039_000049.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e09d80] moov atom not found
+[17:42:29] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/1ZoiEN_OpqA_000293_000303.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac019c0] moov atom not found
+[18:03:22] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Auo0lk8RrHc_000010_000020.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac85200] moov atom not found
+[18:08:49] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/4TSVKbU_3jc_000033_000043.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac019c0] moov atom not found
+[18:10:30] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ILLMU4Z9xvE_000008_000018.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9981b00] moov atom not found
+[18:26:31] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/6QiUBH_HO9w_000016_000026.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa777380] moov atom not found
+[18:35:14] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/4WdOubfz5wQ_000028_000038.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad1dcc0] moov atom not found
+[18:47:42] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/qHUewJuLW4o_000022_000032.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xab75940] moov atom not found
+[19:09:02] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/LV2ISUPl8V4_000122_000132.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacd2000] moov atom not found
+[19:09:36] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/HjmCzZSXqGA_000038_000048.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa34c240] moov atom not found
+[19:15:54] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/SNbrAowjzeI_000203_000213.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6d2100] moov atom not found
+[19:21:02] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/OddbPtCKHe8_000182_000192.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac54480] moov atom not found
+[19:31:40] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/E2NeSaQieHk_000087_000097.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9ed35c0] moov atom not found
+[19:34:42] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/xCvxqw2ow_Q_000020_000030.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad81440] moov atom not found
+[20:30:06] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/74mqA3n9Fp8_000129_000139.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6ece40] moov atom not found
+[20:43:57] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/oaOOUp2mqdI_000880_000890.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6ef800] moov atom not found
+[21:08:26] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/pLFjp_rvqoU_000541_000551.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9ee9400] moov atom not found
+[21:48:37] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/J3qIQBnIWdA_000000_000010.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7c140] moov atom not found
+[21:56:33] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/KV3m4dANkR8_000716_000726.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac9a340] moov atom not found
+[22:39:10] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/pnTBkabGilA_000059_000069.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e10480] moov atom not found
+[22:54:13] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Yml4CqZjPTY_000053_000063.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7d380] moov atom not found
+[23:08:34] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/jtfMIzAGTE4_000056_000066.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9f41b80] moov atom not found
+[23:33:04] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/dCQlny0cK4Y_000021_000031.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4a503ac0] moov atom not found
+[23:58:32] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/aPZGUYcIyak_000000_000010.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[00:07:39] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/314hW9VtW2M_000018_000028.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb5d0f00] moov atom not found
+[00:15:44] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/-sU5IiBuOO4_000004_000014.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xaecc4c0] moov atom not found
+[00:25:45] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/SY7tZvtiJ6Y_000048_000058.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbae5800] moov atom not found
+[01:02:11] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/L641Xxvm9Xg_000000_000010.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa7604c0] moov atom not found
+[01:05:04] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/W9BiqvfQYC4_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9ee0080] moov atom not found
+[01:37:52] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/6UsVv9Mkv1I_000000_000010.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa7604c0] moov atom not found
+[01:41:35] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/MVsy789AT9U_000058_000068.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbaefc80] moov atom not found
+[02:05:29] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/aztHB2WJC50_000010_000020.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9deb6c0] moov atom not found
+[02:06:54] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/LQ4tu2i2sQ4_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9dfec80] moov atom not found
+[02:09:00] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/YElUHEj8f-E_000034_000044.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xab21740] moov atom not found
+[03:04:13] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Sb_KkJrpPZc_000025_000035.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[03:07:44] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/uYn3IYwDUPk_000109_000119.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7c140] moov atom not found
+[03:20:31] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/0ToYJ3VeXaM_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbad8280] moov atom not found
+[03:20:51] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/_NE9X4dSTjw_000027_000037.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[03:58:52] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/r2lgo32o0gQ_000060_000070.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e446c0] moov atom not found
+[04:06:20] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/4kIsSG0ps5E_000010_000020.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacd2000] moov atom not found
+[04:12:53] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/4lTtJeXACp4_000121_000131.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7c140] moov atom not found
+[04:18:42] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/BX3p9Nz5d8U_000011_000021.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4a503ac0] moov atom not found
+[04:31:17] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/c9mUVAhyGhI_000012_000022.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa5857c0] moov atom not found
+[04:46:03] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/fyEGmcch75c_000048_000058.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7c140] moov atom not found
+[04:47:52] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/xw-MLa8sovc_000529_000539.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xabf5d40] moov atom not found
+[04:58:31] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/PO7vCnC1F_Q_000000_000010.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa7604c0] moov atom not found
+[04:58:57] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/0HOdcuBiC1k_000044_000054.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb5e5580] moov atom not found
+[05:00:48] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ZL_8-7u5GQc_000059_000069.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x8a71240] moov atom not found
+[05:39:11] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/8IM-LVuS9QQ_000004_000014.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa7604c0] moov atom not found
+[05:54:53] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Mi5SNpVl-XU_000255_000265.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6ece40] moov atom not found
+[05:56:51] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Mb6QKCos3G4_000013_000023.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4a503ac0] moov atom not found
+[06:03:59] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Zpx7zUBO9lw_000007_000017.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacd2000] moov atom not found
+[06:22:04] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/MRk1n-oU4Rg_000026_000036.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7c140] moov atom not found
+[06:22:50] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/YbRnMoQB7ps_000065_000075.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6d50c0] moov atom not found
+[06:45:27] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Llv_-E9wa7U_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac0bd00] moov atom not found
+[06:52:58] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/VPKq7hXoZvA_000131_000141.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4a503ac0] moov atom not found
+[06:59:45] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/9zQk5ndnZZw_000029_000039.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacd2000] moov atom not found
+[07:57:01] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/FAG_lOABfJM_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacd2000] moov atom not found
+[08:16:19] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/RrpKTU6uzrw_000042_000052.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xabdf5c0] moov atom not found
+[08:18:09] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/HI-wk8adQrI_000063_000073.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb036080] moov atom not found
+[08:37:46] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/sTNaS9SZNWA_000059_000069.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4a503ac0] moov atom not found
+[09:13:35] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/eERWadcoROk_000000_000010.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xada9340] moov atom not found
+[09:17:25] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/4_ezEXo_Ftk_000486_000496.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e811c0] moov atom not found
+[09:44:30] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/2PO0ueedftQ_000103_000113.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7c140] moov atom not found
+[10:09:35] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/b6pwL3IrFYE_000019_000029.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa76dd00] moov atom not found
+[10:13:08] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Ipt2nzv1bYM_000697_000707.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa76dd00] moov atom not found
+[10:44:31] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/V7_rKsIRvdI_000015_000025.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xabe07c0] moov atom not found
+[10:58:49] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/YueiHvZkJPg_000249_000259.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[11:00:02] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/nUSprHziBNw_000096_000106.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6d50c0] moov atom not found
+[11:05:49] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/-3pp5xan1Hw_000006_000016.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb1f8700] moov atom not found
+[11:54:04] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/sVe7f-y8Fbk_000075_000085.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4a503ac0] moov atom not found
+[12:09:07] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/STz7qtmtSOw_000001_000011.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa2291c0] moov atom not found
+[12:43:03] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/g5BUEQ7Ghxs_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xab75940] moov atom not found
+[12:46:06] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/-nBWQIuUI8Y_000189_000199.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad1dec0] moov atom not found
+[12:51:24] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/3hkmyjpJk2s_000050_000060.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4a503ac0] moov atom not found
+[12:52:38] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/wWgKmmt9u5I_000060_000070.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad1dec0] moov atom not found
+[12:53:52] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/k-pmeWCHHmY_000061_000071.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad1dec0] moov atom not found
+[12:53:55] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/fbkm1k4H8Ts_000046_000056.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa76dd00] moov atom not found
+[13:00:50] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/axr3OMHub2Y_000168_000178.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa25a440] moov atom not found
+[13:09:40] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/RwbdoFy5Gjo_000038_000048.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xab75940] moov atom not found
+[13:24:53] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/b60JhXVTi-k_000010_000020.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9f2fa00] moov atom not found
+[13:42:50] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/fzO18qbO7Vg_000036_000046.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6ece40] moov atom not found
+[14:20:45] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/pSl_b49G4DY_000008_000018.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7c140] moov atom not found
+[14:35:00] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/IFH6JqXJh7M_000009_000019.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7c140] moov atom not found
+[14:37:15] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/uVzb9e9hJBQ_000041_000051.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbad8440] moov atom not found
+[14:47:28] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/G4z7bHBp71U_000113_000123.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9ee7c00] moov atom not found
+[14:56:00] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/5R-_iQtgrfU_000014_000024.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa7604c0] moov atom not found
+[15:31:49] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/toqXLZnV2no_000004_000014.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[15:47:29] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/wm3HJNAWa10_000016_000026.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa21ba00] moov atom not found
+[15:50:29] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/oVIsMkwsc7o_000019_000029.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xab91900] moov atom not found
+[15:53:22] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/qHSL4HOofpg_000025_000035.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[16:04:38] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/W39c8UrwPsU_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9f69740] moov atom not found
+[16:13:45] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/4ee9AXLznJQ_000730_000740.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[16:14:06] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Z5aRdE_tnxY_000114_000124.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa351ec0] moov atom not found
+[16:19:34] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/lPEz_8qnuiY_000014_000024.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[16:21:36] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/BN2utD8i13k_000054_000064.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xe2d9fc0] moov atom not found
+[16:33:08] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/a-vFrZCsAoo_000261_000271.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4a503ac0] moov atom not found
+[16:34:12] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/_jEYsDLpHwo_000296_000306.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e8b500] moov atom not found
+[17:07:19] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/3dIzT0EARNo_000032_000042.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9dfec80] moov atom not found
+[17:24:20] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/6d_f66apZtE_000006_000016.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xab91900] moov atom not found
+[17:28:20] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ir0iPalX8UA_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[17:34:44] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Ar6CfUJuXuM_000027_000037.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9dfec80] moov atom not found
+[17:36:40] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/3ymCArbFiuc_000251_000261.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad1dec0] moov atom not found
+[17:48:21] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Uq-_sn1r96I_000017_000027.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacb91c0] moov atom not found
+[18:00:32] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/OR9yuGPAjQQ_000013_000023.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacb91c0] moov atom not found
+[18:00:43] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/9kGVf3COUEo_000004_000014.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa7604c0] moov atom not found
+[18:27:01] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/pHyS7T17WOo_000001_000011.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[18:35:12] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/tU_DcOgIVyw_000035_000045.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa7604c0] moov atom not found
+[19:22:57] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/UL2-GtnTeNA_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa25a440] moov atom not found
+[20:18:10] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/N2XhrNdf-tU_000022_000032.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9df2f40] moov atom not found
+[20:39:19] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/szJFybeDfKo_000006_000016.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbaeefc0] moov atom not found
+[20:45:28] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/j_4XqIR9si4_000181_000191.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa248bc0] moov atom not found
+[21:28:36] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Q7kiodW8PZU_000006_000016.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad1dec0] moov atom not found
+[21:29:55] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/EfwX5QFeAA0_000034_000044.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xab75940] moov atom not found
+[21:46:17] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/1cZzwp9ZKTI_000220_000230.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7c140] moov atom not found
+[21:55:17] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/wL1Bit-Gv40_000305_000315.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad1dec0] moov atom not found
+[21:56:41] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/SuViTNfPqV4_000013_000023.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa7604c0] moov atom not found
+[21:58:43] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/zGoVKM0P4UY_000194_000204.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xaf6b900] moov atom not found
+[22:27:38] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/FmCefr-b3XI_000216_000226.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad0a740] moov atom not found
+[22:41:21] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/HfOZIBllIqo_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad1dec0] moov atom not found
+[22:55:03] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/v9h6EEOtB2Q_000001_000011.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad1dec0] moov atom not found
+[22:57:25] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/cL0y26Y4SKA_000425_000435.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[22:58:12] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/334lzoOjvFU_000009_000019.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa7604c0] moov atom not found
+[23:21:27] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/WferZf1Ax9s_000177_000187.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x997e540] moov atom not found
+[23:22:22] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/91UPzK73iIQ_000013_000023.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e0f200] moov atom not found
+[23:54:09] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/4PGapXvYpmE_000005_000015.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacd6bc0] moov atom not found
+[00:03:17] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/--PyMoD3_eg_000020_000030.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad1dec0] moov atom not found
+[00:27:30] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/4pDM_Am4TKU_000062_000072.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac6fb80] moov atom not found
+[00:51:24] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/SToi-GE8yzo_000052_000062.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7c140] moov atom not found
+[01:07:18] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/JwVHzKCRBFg_000010_000020.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9f69740] moov atom not found
+[01:14:05] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/FArfC_OAUrM_000036_000046.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad1dec0] moov atom not found
+[01:18:39] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/99QEXAw2Bhw_000541_000551.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9de7c00] moov atom not found
+[01:31:19] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/oIcGePbfric_000017_000027.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6e8240] moov atom not found
+[01:32:19] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/7XB9EqKegkY_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac6fb80] moov atom not found
+[01:37:35] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/R24FbEk2NiU_000197_000207.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad1dec0] moov atom not found
+[01:38:03] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/FYfyieUSUKY_000138_000148.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e2b0c0] moov atom not found
+[02:19:48] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/YOTZ-N7PHcM_000147_000157.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9f41b80] moov atom not found
+[02:22:06] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/y9ebp5hZ2nw_000612_000622.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa33cd80] moov atom not found
+[02:32:56] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/9yxWUrtQJnw_000011_000021.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa33b740] moov atom not found
+[02:42:42] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/cY8YSwJIKy8_000037_000047.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9f41b80] moov atom not found
+[02:51:18] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/FyhH8_uHVNA_000021_000031.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac6fb80] moov atom not found
+[03:22:10] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/2jtmUQyY72A_000220_000230.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb1f8700] moov atom not found
+[03:35:40] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Zs7T7LmJ03A_000049_000059.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa6aaac0] moov atom not found
+[03:51:28] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/0sFD_PF4YfQ_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7c140] moov atom not found
+[03:57:35] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/eOpPlx-1vZ4_000005_000015.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9de7c00] moov atom not found
+[04:26:34] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/1SyZEtPwE90_000094_000104.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9de7c00] moov atom not found
+[04:33:54] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/xnDV8HGLa78_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6ece40] moov atom not found
+[04:47:02] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/vTurjTTVH34_000001_000011.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6ece40] moov atom not found
+[04:56:32] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Mogmr_f1YPI_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac53e00] moov atom not found
+[04:57:46] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ZMj23ZGdPB0_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9dfec80] moov atom not found
+[05:00:25] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Af4NV3BAv28_000008_000018.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9de7c00] moov atom not found
+[05:03:04] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/XY0vuacwF1g_000056_000066.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbb03940] moov atom not found
+[05:35:29] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/1EeEwWs9PtA_000001_000011.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4a503ac0] moov atom not found
+[05:40:03] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/gzgsDXdPnj0_000045_000055.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e211c0] moov atom not found
+[06:09:20] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/EiRZjAB5JOY_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad1dec0] moov atom not found
+[06:44:40] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/bvw9T10NxLg_000056_000066.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbae4c40] moov atom not found
+[06:46:11] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/APugGaIZMMA_000033_000043.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9ee8880] moov atom not found
+[06:59:23] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/WZhUV4XmHKg_000013_000023.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xabe1400] moov atom not found
+[07:25:27] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/9JJ9rYhDNH8_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbae4c40] moov atom not found
+[07:32:13] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/yrew-Wbh4p0_000147_000157.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7c140] moov atom not found
+[07:41:20] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/rRnfeaeRJGg_000116_000126.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa75f0c0] moov atom not found
+[08:19:07] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/bbFVNPNZJ0E_000039_000049.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacc1780] moov atom not found
+[08:24:14] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/_NXXImLf8jg_000012_000022.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbae4c40] moov atom not found
+[08:25:44] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/g60trSMRunk_001037_001047.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7c140] moov atom not found
+[08:59:12] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/zKUPn_Ozq-Q_000005_000015.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb204b80] moov atom not found
+[09:28:21] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/vEHIwv5ZFgQ_000735_000745.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xade63c0] moov atom not found
+[09:33:16] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/IYA3XgbuaMs_000004_000014.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac6fb80] moov atom not found
+[09:41:36] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Xxe46dBtNeA_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacd77c0] moov atom not found
+[09:42:13] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ye1BChpYqps_000001_000011.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e23340] moov atom not found
+[10:18:52] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/TqJF5_ve9Og_000000_000010.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9f53880] moov atom not found
+[10:26:11] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/QhF1i23vwps_000379_000389.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad1dec0] moov atom not found
+[10:35:33] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/vfcSmZwYFLg_000000_000010.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9de7c00] moov atom not found
+[11:00:31] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/MYFVsllwDnc_000077_000087.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa7604c0] moov atom not found
+[11:11:50] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/KG-Pj7PU0Ag_000093_000103.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacd77c0] moov atom not found
+[11:17:07] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/i5kwBzb3ETQ_000267_000277.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa31bf00] moov atom not found
+[11:30:27] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/YtTDXKoc_UQ_000004_000014.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9de7c00] moov atom not found
+[11:32:11] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/WXuOmL1DW4I_000098_000108.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e211c0] moov atom not found
+[11:39:59] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/y7qUdn5G_o4_000066_000076.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6cd8c0] moov atom not found
+[11:59:54] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/FsohiksKkxQ_000049_000059.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9de7c00] moov atom not found
+[12:08:37] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/3_jHpusqqHc_000068_000078.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xade63c0] moov atom not found
+[12:13:45] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Ud9poTS_URE_000014_000024.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9ee9d00] moov atom not found
+[12:18:15] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/9hYjz5h69Iw_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7c140] moov atom not found
+[12:23:28] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/GkGS69GCx4Q_000319_000329.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb19a380] moov atom not found
+[12:37:09] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/YQ7fbcyvD5A_000015_000025.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7c140] moov atom not found
+[12:59:58] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/2yfY6KhdZ4A_000004_000014.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7c140] moov atom not found
+[13:43:44] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/hDrjZvfrupo_000004_000014.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e211c0] moov atom not found
+[13:51:31] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/uq6frA9p-8E_000064_000074.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa7604c0] moov atom not found
+[13:59:47] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/4mDZbzXF01M_000051_000061.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac8fd80] moov atom not found
+[14:04:52] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/8kOe5--Xr-Y_000038_000048.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac8fd80] moov atom not found
+[14:19:21] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/46UXYspe8LY_000143_000153.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xabe1400] moov atom not found
+[14:31:10] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/nUA9HTQ6eXU_000161_000171.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6da440] moov atom not found
+[14:50:02] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/iNulfYYLisk_000026_000036.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9de7c00] moov atom not found
+[14:56:44] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/-6wkYqjFei0_000015_000025.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xabf4740] moov atom not found
+[15:24:32] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/glFItnN5nmU_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa7604c0] moov atom not found
+[15:29:46] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/zvPuEkmNEUs_000000_000010.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xade63c0] moov atom not found
+[15:45:29] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/F47C5SYGiaU_000159_000169.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad1dec0] moov atom not found
+[15:46:54] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/wUZMAhd7SD0_000049_000059.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6da440] moov atom not found
+[16:00:41] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/eEVAu-zkBeA_000114_000124.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9de7c00] moov atom not found
+[16:04:52] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/X8zjUq66auE_000045_000055.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6da440] moov atom not found
+[16:34:39] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/uIU098lJXN8_000151_000161.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa764180] moov atom not found
+[16:45:15] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Dc3gZUEfW6Q_000014_000024.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa764180] moov atom not found
+[16:52:26] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/uaAANQQTnpw_000046_000056.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad1dec0] moov atom not found
+[16:57:38] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/3WQ-JISG13Q_000015_000025.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb371480] moov atom not found
+[17:01:58] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/DwzDzehEFXU_000082_000092.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9de7c00] moov atom not found
+[17:10:25] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/EhGgMx0lK4c_000108_000118.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa764180] moov atom not found
+[17:14:17] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ipc-xJ815eo_000024_000034.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x8a75e00] moov atom not found
+[17:15:38] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/JkhX-ZOUDEI_000061_000071.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac6fb80] moov atom not found
+[17:23:53] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/sYLCdAjLXUI_000032_000042.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad1dec0] moov atom not found
+[17:43:49] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/2PO0ueedftQ_000103_000113.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xade63c0] moov atom not found
+[17:49:45] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/bcySro9bnq0_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e8e9c0] moov atom not found
+[18:01:13] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/d_vQWquKtBg_000015_000025.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbae5800] moov atom not found
+[18:41:13] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/fNz1eIuRdXk_000041_000051.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb67d540] moov atom not found
+[18:52:12] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/fqXYAuPbRu4_000004_000014.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa708bc0] moov atom not found
+[19:18:37] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Dp6UWbUTb94_000090_000100.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7c140] moov atom not found
+[20:03:17] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/2lujXIXQIg0_000052_000062.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa309700] moov atom not found
+[20:27:18] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/tcmkoguc5eI_000172_000182.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9de7c00] moov atom not found
+[20:46:43] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/NNl5SiIQHsA_000009_000019.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xade63c0] moov atom not found
+[20:49:32] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/XcOqkVUcHfQ_000038_000048.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6da440] moov atom not found
+[21:12:02] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/xvmWVzf9Dts_000008_000018.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac54780] moov atom not found
+[21:15:34] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/6NuDd5_gfYg_000107_000117.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa764180] moov atom not found
+[21:27:10] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/rRwzoOqhgLI_000025_000035.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa764180] moov atom not found
+[21:27:10] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/fgqtTN5xTus_000067_000077.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac6fb80] moov atom not found
+[22:49:45] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Xbtk7XLnYVU_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad1dec0] moov atom not found
+[22:55:19] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/AJGbQJVZbeY_000026_000036.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad1dec0] moov atom not found
+[22:57:38] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/k0ml8aNcH8o_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7c140] moov atom not found
+[22:58:43] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/J5xNIJlfBAw_000156_000166.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9ea5f40] moov atom not found
+[23:09:57] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/KA5UeZwbiXI_000028_000038.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa78fe80] moov atom not found
+[23:16:38] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/JEP8qB4ID6I_000035_000045.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4a503ac0] moov atom not found
+[00:26:26] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/6mzXcoDbwX8_000018_000028.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa7d5080] moov atom not found
+[00:51:29] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/RL3uLhgk-vU_000029_000039.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xade63c0] moov atom not found
+[00:57:36] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/MHJp38AD5Ns_000004_000014.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4a503ac0] moov atom not found
+[01:03:01] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/is5-BkK9S4s_000244_000254.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7c140] moov atom not found
+[01:19:46] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/nicJBpRcQ1M_000030_000040.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac6fb80] moov atom not found
+[02:04:15] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/18WHn7W7NQU_001477_001487.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa249840] moov atom not found
+[02:18:20] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/MVWayhNpHr0_000065_000075.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9de7c00] moov atom not found
+[03:01:19] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/lm6Jx0zZv54_000019_000029.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbb46d00] moov atom not found
+[03:02:19] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/3Wp48pqqLzE_000114_000124.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9de7c00] moov atom not found
+[03:30:41] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/6bt8TYz5bjk_000068_000078.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9f38ac0] moov atom not found
+[03:42:22] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/crdQfKx_Sxw_000001_000011.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e2b0c0] moov atom not found
+[04:24:01] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/67C9Qcv0LGw_000110_000120.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9de7c00] moov atom not found
+[04:28:55] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/vwAB1oamlNM_000107_000117.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6f2a40] moov atom not found
+[04:32:24] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/sRMphWVvP6U_000012_000022.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9de7c00] moov atom not found
+[05:02:56] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/GxMO7mFtoPY_000036_000046.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad8a6c0] moov atom not found
+[05:21:47] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/UXbDVe37ul4_000004_000014.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7c140] moov atom not found
+[05:27:34] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/PB48jnghgn0_000006_000016.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac01900] moov atom not found
+[05:50:22] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/gtleS6OwMqU_000066_000076.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac752c0] moov atom not found
+[06:05:04] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/8v-SM2ZZD5Q_000057_000067.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa353580] moov atom not found
+[06:23:48] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/bp0JK_DQYvM_000345_000355.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xab14300] moov atom not found
+[06:29:16] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/-bjbA_Vbcss_000027_000037.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa764180] moov atom not found
+[06:37:05] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/7WjjtCiTPOk_000184_000194.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad1dec0] moov atom not found
+[06:37:16] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/s6mrnr8FdxA_000016_000026.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xade63c0] moov atom not found
+[06:38:13] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/y7IW50HI5O0_000008_000018.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9de7c00] moov atom not found
+[06:45:04] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/WwFQzYkdbmw_000001_000011.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9ea5840] moov atom not found
+[06:47:12] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ALYQac0lnOI_000144_000154.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7c140] moov atom not found
+[07:31:35] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/QHWT7TuFUis_000015_000025.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa91d8c0] moov atom not found
+[07:35:17] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/1fEz4EbP5nw_000217_000227.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac1c640] moov atom not found
+[07:40:03] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/pffxjlrD-2E_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa764180] moov atom not found
+[07:50:02] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/SQowI1E1wgk_000361_000371.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9e0c080] moov atom not found
+[08:15:01] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/tQfnYnTRdNQ_000014_000024.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac25a80] moov atom not found
+[09:05:01] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Yk7AevXvXgM_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xadb9680] moov atom not found
+[09:31:04] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/2EsHM93GZaY_000082_000092.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa696040] moov atom not found
+[09:32:07] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/nBaVBkJBZiM_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xadb9680] moov atom not found
+[09:33:22] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ArK6K69glpU_000038_000048.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa696040] moov atom not found
+[09:39:31] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/74_mUqy4r70_000139_000149.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa245080] moov atom not found
+[10:27:05] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Ni_jDS2N7yg_000111_000121.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac01900] moov atom not found
+[10:35:11] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/1X12iI6UfTk_000268_000278.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9de7c00] moov atom not found
+[10:41:05] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/UBvlXu7-__A_000028_000038.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xabf3080] moov atom not found
+[10:52:59] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/DxqWpE8_LjU_000088_000098.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x4a503ac0] moov atom not found
+[10:56:09] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Alyb2ByEnNM_000002_000012.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa764180] moov atom not found
+[11:04:36] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/EjGitDsicNs_000049_000059.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa764180] moov atom not found
+[11:14:05] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/RELd7D0XLUs_000016_000026.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xabf7d40] moov atom not found
+[11:17:16] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/WMRzgY6pFho_000173_000183.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa764180] moov atom not found
+[11:23:48] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/rWgKQXb4Vhk_000140_000150.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac6fb80] moov atom not found
+[12:09:41] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/3hdEyGHPHmE_000035_000045.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xbaef000] moov atom not found
+[12:19:14] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/xPJz34DwPKg_000055_000065.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xade63c0] moov atom not found
+[12:23:26] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ZHrXvdipU2s_000027_000037.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa777e80] moov atom not found
+[12:29:32] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/UhkXeiMm_s4_000017_000027.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6da440] moov atom not found
+[12:55:34] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/EFRmvxU7zO0_000069_000079.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xacaec00] moov atom not found
+[13:01:20] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/jTSl_oHh6yg_000003_000013.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac6fb80] moov atom not found
+[13:05:45] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/rHLg-C-dLms_000026_000036.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac54640] moov atom not found
+[13:28:04] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/V5YUDwqBbtg_000100_000110.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac54640] moov atom not found
+[13:45:14] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/6q2BGn6Ha2g_000000_000010.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x9f41b80] moov atom not found
+[13:57:48] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/ownUEuvmW90_000138_000148.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac54640] moov atom not found
+[14:07:15] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/z4YIk0P-K_g_000009_000019.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xab22040] moov atom not found
+[14:08:54] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/8ztaBsHQegI_000000_000010.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xad7c140] moov atom not found
+[14:13:00] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/UDo4pHaEHoE_000044_000054.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb6da440] moov atom not found
+[14:18:15] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/U48nWZz2cfE_000035_000045.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa764180] moov atom not found
+[14:21:16] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/Yu8d0GdWZoE_000032_000042.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xac54640] moov atom not found
+[14:41:02] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/UJB7u7g2Slk_000045_000055.mp4, Invalid data found when processing input
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0xa764180] moov atom not found
+[14:48:15] /github/workspace/src/video/video_reader.cc:83: ERROR opening: /home/datasets/k400/train/rj4sx9uj2lg_000099_000109.mp4, Invalid data found when processing input
+slurmstepd-ds001: error: *** JOB 28960 ON ds001 CANCELLED AT 2026-03-22T15:03:37 DUE TO TIME LIMIT ***

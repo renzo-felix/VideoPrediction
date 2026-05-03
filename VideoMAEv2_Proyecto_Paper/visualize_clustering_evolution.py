@@ -37,7 +37,7 @@ class ClusteringEvolutionAnimator:
         self.output_dir = output_dir
         self.output_name = output_name
         self.components = ["residual", "attn", "mlp"]
-        
+
         # Almacenarán las proyecciones 2D (diccionarios component -> int(layer) -> np.ndarray [N, 2])
         self.projections = {comp: {} for comp in self.components}
         self.labels = None
