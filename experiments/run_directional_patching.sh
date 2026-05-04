@@ -34,7 +34,7 @@ echo "Job: $SLURM_JOB_ID | Node: $SLURMD_NODENAME | GPU: $(nvidia-smi --query-gp
 LAYERS="0 3 6 9 12 15 18 21 23"
 
 echo ""
-echo "--- V-JEPA ViT-L: patching en capas $LAYERS ---"
+echo "--- V-JEPA ViT-L: patching SLOW (videos lentos, α positivo → rápido) ---"
 python experiments/src/directional_patching.py \
     --model vjepa \
     --checkpoint /home/renzo.felix/VideoPrediction/vjepa2/checkpoints/vitl.pt \
@@ -45,10 +45,26 @@ python experiments/src/directional_patching.py \
     --n-videos 50 \
     --speed-group slow \
     --device cuda \
-    --null-experiments
+    --null-experiments \
+    --output experiments/results/directional_patching_vjepa_slow.pkl
 
 echo ""
-echo "=== DONE: directional_patching_vjepa.pkl guardado ==="
+echo "--- V-JEPA ViT-L: patching FAST (videos rápidos, α negativo → lento) ---"
+python experiments/src/directional_patching.py \
+    --model vjepa \
+    --checkpoint /home/renzo.felix/VideoPrediction/vjepa2/checkpoints/vitl.pt \
+    --direction-vectors experiments/results/direction_vectors_layerwise_vjepa.pkl \
+    --layers $LAYERS \
+    --final-layer 23 \
+    --alphas -3 -2 -1 0 1 2 3 \
+    --n-videos 50 \
+    --speed-group fast \
+    --device cuda \
+    --null-experiments \
+    --output experiments/results/directional_patching_vjepa_fast.pkl
+
+echo ""
+echo "=== DONE: directional_patching_vjepa_slow.pkl y _fast.pkl guardados ==="
 echo ""
 echo "Resultados clave a revisar en los logs:"
 echo "  - Monotonicidad perfecta (1.0) → causalidad FUERTE"
