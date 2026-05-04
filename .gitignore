@@ -62,3 +62,13 @@ speed_probe/output/
 *.err
 vjepa2/.claude/settings.local.json
 /vjepa2/.claude
+
+# ========================
+# Experimentos (Counterfactuals)
+# ========================
+experiments/videos/
+experiments/activations/
+experiments/logs/
+experiments/results/
+*.mp4
+*.npy
