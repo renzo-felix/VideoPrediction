@@ -1,5 +1,4 @@
 #!/bin/bash
-
 #SBATCH --partition=data-science
 #SBATCH --gres=gpu:1
 #SBATCH --job-name=videomae_probing
@@ -10,7 +9,8 @@
 #SBATCH --qos=a-investigacion1
 #SBATCH --output=./direction_vectors_%j.log
 #SBATCH --error=./direction_vectors_%j.err
-
+#SBATCH --mail-type=END,FAIL
+#SBATCH --mail-user=renzo.felix@utec.edu.pe
 
 
 # ====================================
@@ -20,15 +20,11 @@
 # Modelo: V-JEPA ViT-L (vitl.pt) — 24 capas, hidden_dim=1024
 # ============================================================
 
-# ============================================================
-# Paso A: Calcular direction vectors en TODAS las capas (0-23)
-# Modelo: V-JEPA ViT-L (vitl.pt) — 24 capas, hidden_dim=1024
-# ============================================================
-
 set -e
 cd /home/renzo.felix/VideoPrediction
 
-conda activate video
+source ~/miniconda3/etc/profile.d/conda.sh
+conda activate vjepa2-312
 
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
