@@ -38,4 +38,5 @@ def normalize_video(frames):
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
     ])
-    return torch.stack([transform(f) for f in frames])
+    # stack → [T, C, H, W], permute → [C, T, H, W] (formato que espera V-JEPA)
+    return torch.stack([transform(f) for f in frames]).permute(1, 0, 2, 3)
