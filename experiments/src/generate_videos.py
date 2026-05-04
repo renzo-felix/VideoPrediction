@@ -103,8 +103,9 @@ def generate_training(output_dir):
                     })
                     video_counter += 1
 
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
     df = pd.DataFrame(metadata)
-    df.to_csv(DATA_DIR / "training_metadata.csv", index=False)
+    df.to_csv(DATA_DIR / "training_multi_attribute_metadata.csv", index=False)
     print(f"✓ Generated {len(metadata)} training videos")
     print(f"  Speeds: {speeds}")
     print(f"  Sizes: {sizes}")
