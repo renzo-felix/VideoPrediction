@@ -10,12 +10,12 @@ ACTIVATIONS_DIR = BASE_DIR / "activations"
 
 # Models
 VJEPA_CODE_PATH = BASE_DIR.parent / "vjepa2"
-VJEPA_CHECKPOINT = MODELS_DIR / "vitg16.pth"
+VJEPA_CHECKPOINT = Path("/home/renzo.felix/VideoPrediction/vjepa2/checkpoints/vitl.pt")
 VJEPA_LAYER = 9
-VJEPA_HIDDEN_DIM = 1408
+VJEPA_HIDDEN_DIM = 1024
 
 VIDEOMAE_CODE_PATH = BASE_DIR.parent / "VideoMAEv2_Proyecto_Paper"
-VIDEOMAE_CHECKPOINT = MODELS_DIR / "videomae_vitg.pth"
+VIDEOMAE_CHECKPOINT = Path("/home/renzo.felix/VideoPrediction/vjepa2/checkpoints/videomae_vitg.pth")
 VIDEOMAE_LAYER = 9
 VIDEOMAE_HIDDEN_DIM = 1408
 
