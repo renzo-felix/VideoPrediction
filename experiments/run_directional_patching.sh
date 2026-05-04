@@ -1,11 +1,11 @@
 #!/bin/bash
 #SBATCH --job-name=directional_patching
-#SBATCH --partition=gpu
-#SBATCH --gres=gpu:rtxa6000:1
-#SBATCH --nodelist=ds001
-#SBATCH --cpus-per-task=8
+#SBATCH --partition=data-science
+#SBATCH --gres=gpu:1
+#SBATCH --cpus-per-task=4
 #SBATCH --mem=8G
 #SBATCH --time=6-00:00:00
+#SBATCH --account=investigacion1
 #SBATCH --qos=a-investigacion1
 #SBATCH --output=experiments/logs/directional_patching_%j.log
 #SBATCH --error=experiments/logs/directional_patching_%j.err

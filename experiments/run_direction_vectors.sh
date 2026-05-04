@@ -1,14 +1,24 @@
 #!/bin/bash
-#SBATCH --job-name=direction_vectors
-#SBATCH --partition=gpu
-#SBATCH --gres=gpu:rtxa6000:1
-#SBATCH --nodelist=ds001
-#SBATCH --cpus-per-task=8
-#SBATCH --mem=8G
+
+#SBATCH --partition=data-science
+#SBATCH --gres=gpu:1
+#SBATCH --job-name=videomae_probing
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=16G
 #SBATCH --time=6-00:00:00
+#SBATCH --account=investigacion1
 #SBATCH --qos=a-investigacion1
-#SBATCH --output=experiments/logs/direction_vectors_%j.log
-#SBATCH --error=experiments/logs/direction_vectors_%j.err
+#SBATCH --output=./direction_vectors_%j.log
+#SBATCH --error=./direction_vectors_%j.err
+
+
+
+# ====================================
+
+# ============================================================
+# Paso A: Calcular direction vectors en TODAS las capas (0-23)
+# Modelo: V-JEPA ViT-L (vitl.pt) — 24 capas, hidden_dim=1024
+# ============================================================
 
 # ============================================================
 # Paso A: Calcular direction vectors en TODAS las capas (0-23)
