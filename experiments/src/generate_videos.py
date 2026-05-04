@@ -45,8 +45,9 @@ def generate_video(shape, size_scale, color_rgba, material_specular, texture_typ
         _, _, rgb, _, _ = p.getCameraImage(
             width=IMG_SIZE, height=IMG_SIZE,
             viewMatrix=view_matrix, projectionMatrix=proj_matrix,
-            renderer=p.ER_BULLET_HARDWARE_OPENGL
+            renderer=p.ER_TINY_RENDERER
         )
+        rgb = np.array(rgb, dtype=np.uint8).reshape(IMG_SIZE, IMG_SIZE, 4)
         frames.append(rgb[:, :, :3])
 
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')
