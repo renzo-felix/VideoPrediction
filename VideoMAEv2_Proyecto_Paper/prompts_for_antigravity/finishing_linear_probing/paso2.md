@@ -25,7 +25,8 @@ Hemos comprobado exitosamente nuestra hipótesis de "Cristalización Semántica"
   export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
   ```
 
-**Logging a WandB:**
+**Logging a WandB (¡ATENCIÓN KHIPU!):**
+Los nodos de cómputo en Khipu (como `g002`) NO tienen salida a internet. Debes configurar `export WANDB_MODE=offline` en el job de SLURM para guardar los datos localmente, y luego proveer un script en Python (`upload_wandb.py`) que pueda ser ejecutado desde el nodo principal para sincronizar el `.json` resultante a la nube. No intentes subir los datos en vivo durante la extracción.
 El script `run_layer_probing.py` ya tiene integración completa con Weights & Biases:
 - Función `log_to_wandb()` que sube accuracy por capa, confusion matrices y gráficas interactivas
 - Argumentos CLI: `--wandb_project` (default: `videomae_probing`) y `--no_wandb` para desactivar
@@ -106,10 +107,11 @@ Desarrollar `create_physical_subset_k400.py`, su orquestador Slurm `run_subset_k
    #SBATCH --output=logs/probing_k400_%j.out
    #SBATCH --error=logs/probing_k400_%j.err
    #SBATCH --partition=gpu
-   #SBATCH --gres=gpu:1
+   #SBATCH --gres=gpu:rtxa6000:1
+   #SBATCH --nodelist=g002
    #SBATCH --ntasks=1
    #SBATCH --cpus-per-task=8
-   #SBATCH --mem=32G
+   #SBATCH --mem=128G
    #SBATCH --account=investigacion1
    #SBATCH --qos=a-investigacion1
    #SBATCH --time=2-00:00:00
@@ -117,6 +119,7 @@ Desarrollar `create_physical_subset_k400.py`, su orquestador Slurm `run_subset_k
    # 1. CARGA DE MÓDULOS BASE
    module load cuda/11.8
    module load miniconda/3.0
+   module load ffmpeg 2>/dev/null || true  # <-- CRÍTICO para poder guardar MP4s sin internet en Khipu
 
    # 2. ACTIVACIÓN DEL ENTORNO CONDA
    eval "$(conda shell.bash hook)"
@@ -129,8 +132,8 @@ Desarrollar `create_physical_subset_k400.py`, su orquestador Slurm `run_subset_k
    # 4. PREVENCIÓN DE FRAGMENTACIÓN DE VRAM
    export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
-   # 5. AUTENTICACIÓN WANDB (usar key de ~/.netrc)
-   export WANDB_API_KEY=$(grep password ~/.netrc | awk '{print $2}')
+   # 5. MODO OFFLINE DE WANDB (Khipu no tiene internet en nodos de cómputo)
+   export WANDB_MODE=offline
 
    # 6. PASO A: Crear subset físico de K400
    python -u create_physical_subset_k400.py
@@ -138,11 +141,14 @@ Desarrollar `create_physical_subset_k400.py`, su orquestador Slurm `run_subset_k
    # 7. PASO B: Ejecutar probing en K400
    python -u run_layer_probing.py \
        --wandb_project videomae_probing_k400 \
+       --dataset_name k400 \
+       --video_format mp4 \
+       --num_classes 710 \
        --output_dir output_dir
 
    # 8. PASO C: Generar video de clustering (PCA+UMAP) para K400
    python -u visualize_clustering_evolution.py \
-       --npz output_dir/activations_k400_Nlayers.npz \
+       --npz output_dir/activations_k400_40layers.npz \
        --output_dir videos_simulation_clustering \
        --output_name clustering_evolution_k400.mp4
    ```

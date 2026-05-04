@@ -125,7 +125,48 @@ def load_video_frames(video_dir: str, num_frames: int = 16, size: int = 224) -> 
     return video_tensor
 
 
-def load_model(checkpoint_path: str, device: torch.device) -> nn.Module:
+def load_video_mp4(video_path: str, num_frames: int = 16, size: int = 224) -> torch.Tensor:
+    """
+    Carga un archivo MP4 y extrae frames usando decord.
+    """
+    import decord
+    from torchvision import transforms
+    decord.bridge.set_bridge('torch')
+    
+    vr = decord.VideoReader(video_path, ctx=decord.cpu(0))
+    total_frames = len(vr)
+    
+    if total_frames == 0:
+        raise ValueError(f"Video {video_path} vacío.")
+
+    if total_frames >= num_frames:
+        indices = np.linspace(0, total_frames - 1, num_frames, dtype=int)
+    else:
+        indices = list(range(total_frames))
+        while len(indices) < num_frames:
+            indices.append(total_frames - 1)
+        indices = np.array(indices)
+        
+    frames_tensor = vr.get_batch(indices)
+    
+    transform = transforms.Compose([
+        transforms.Resize(size, interpolation=transforms.InterpolationMode.BICUBIC),
+        transforms.CenterCrop(size),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5]),
+    ])
+    
+    transformed_frames = []
+    for i in range(len(indices)):
+        img = Image.fromarray(frames_tensor[i].numpy())
+        transformed_frames.append(transform(img))
+        
+    video_tensor = torch.stack(transformed_frames, dim=0)
+    video_tensor = video_tensor.permute(1, 0, 2, 3)
+    return video_tensor
+
+
+def load_model(checkpoint_path: str, device: torch.device, num_classes: int = 174) -> nn.Module:
     """
     Carga el ViT-Giant con pesos del checkpoint SSv2 finetuned.
 
@@ -134,7 +175,7 @@ def load_model(checkpoint_path: str, device: torch.device) -> nn.Module:
     """
     print(f"Cargando modelo vit_giant_patch14_224...")
     model = vit_giant_patch14_224(
-        num_classes=174,   # SSv2 tiene 174 clases
+        num_classes=num_classes,   # Configurable por arg (174 SSv2, 710 K400/K710)
         all_frames=16,     # 16 frames de entrada
         tubelet_size=2,    # tubelet estándar
         cos_attn=True,     # ViT-Giant usa CosAttention
@@ -194,6 +235,7 @@ def extract_all_activations(
     num_frames: int,
     batch_size: int,
     device: torch.device,
+    video_format: str = "frames",
     max_videos: int = None,
 ) -> dict:
     """
@@ -232,7 +274,10 @@ def extract_all_activations(
     # los nombres de las activaciones y la dimensión embed_dim.
     # Esto evita hardcodear nombres y es compatible con cualquier cantidad de capas.
     first_video_path = os.path.join(data_root, entries[0]["video_path"])
-    probe_tensor = load_video_frames(first_video_path, num_frames=num_frames)
+    if video_format == "mp4":
+        probe_tensor = load_video_mp4(first_video_path, num_frames=num_frames)
+    else:
+        probe_tensor = load_video_frames(first_video_path, num_frames=num_frames)
     probe_tensor = probe_tensor.unsqueeze(0).to(device)
     with torch.no_grad():
         _ = model(probe_tensor)
@@ -276,7 +321,10 @@ def extract_all_activations(
 
         try:
             # 1. Cargar video → [C, T, H, W] = [3, 16, 224, 224]
-            video_tensor = load_video_frames(video_path, num_frames=num_frames)
+            if video_format == "mp4":
+                video_tensor = load_video_mp4(video_path, num_frames=num_frames)
+            else:
+                video_tensor = load_video_frames(video_path, num_frames=num_frames)
             # Añadir dimensión de batch → [1, C, T, H, W] = [1, 3, 16, 224, 224]
             video_tensor = video_tensor.unsqueeze(0).to(device)
 
@@ -483,6 +531,12 @@ def main():
     parser.add_argument("--layers", type=int, nargs="+",
                         default=list(range(40)),
                         help="Capas a analizar (default: todas las 40 capas del ViT-Giant)")
+    parser.add_argument("--video_format", type=str, choices=["frames", "mp4"], default="frames",
+                        help="Formato de video (frames para SSv2, mp4 para K400)")
+    parser.add_argument("--num_classes", type=int, default=174,
+                        help="Número de clases del modelo (174 para SSv2, 710 para K400)")
+    parser.add_argument("--dataset_name", type=str, default="ssv2",
+                        help="Nombre del dataset para prefijo de guardado")
     args = parser.parse_args()
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -492,7 +546,7 @@ def main():
         print(f"  VRAM: {torch.cuda.get_device_properties(0).total_memory / 1e9:.1f} GB")
 
     # 1. Cargar modelo
-    model = load_model(args.checkpoint, device)
+    model = load_model(args.checkpoint, device, num_classes=args.num_classes)
 
     # 2. Configurar extractor de activaciones
     extractor = VideoMAEActivationExtractor(
@@ -515,6 +569,7 @@ def main():
         num_frames=args.num_frames,
         batch_size=args.batch_size,
         device=device,
+        video_format=args.video_format,
         max_videos=args.max_videos,
     )
 
@@ -530,7 +585,7 @@ def main():
     # los resultados existentes de 11 capas (activations.npz, probing_results.json).
     # Con 40 capas generamos activations_40layers.npz; con 11, activations_11layers.npz.
     num_layers = len(args.layers)
-    npz_name = f"activations_{num_layers}layers.npz"
+    npz_name = f"activations_{args.dataset_name}_{num_layers}layers.npz"
     save_path = os.path.join(args.output_dir, npz_name)
     print(f"\n[INFO] Guardando matriz de activaciones en disco ({save_path})...")
     
@@ -552,7 +607,7 @@ def main():
     os.makedirs(args.output_dir, exist_ok=True)
     # Naming dinámico para JSON igual que el .npz, evitando sobrescribir
     # los probing_results.json existentes de la ejecución con 11 capas.
-    json_name = f"probing_results_{num_layers}layers.json"
+    json_name = f"probing_results_{args.dataset_name}_{num_layers}layers.json"
     output_path = os.path.join(args.output_dir, json_name)
     with open(output_path, "w") as f:
         json.dump(results, f, indent=2)
