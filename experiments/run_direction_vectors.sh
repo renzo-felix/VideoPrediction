@@ -4,8 +4,8 @@
 #SBATCH --gres=gpu:rtxa6000:1
 #SBATCH --nodelist=ds001
 #SBATCH --cpus-per-task=8
-#SBATCH --mem=16G
-#SBATCH --time=04:00:00
+#SBATCH --mem=8G
+#SBATCH --time=6-00:00:00
 #SBATCH --qos=a-investigacion1
 #SBATCH --output=experiments/logs/direction_vectors_%j.log
 #SBATCH --error=experiments/logs/direction_vectors_%j.err
