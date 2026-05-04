@@ -47,6 +47,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 import numpy as np
 import torch
 import pandas as pd
+from sklearn.decomposition import PCA
 
 from config import (
     DATA_DIR, RESULTS_DIR, FIGURES_DIR,
@@ -357,6 +358,122 @@ def plot_patching_results(patching_results: dict, model_name: str,
 
 
 # ---------------------------------------------------------------------------
+# Null experiments (control estadístico)
+# ---------------------------------------------------------------------------
+
+def collect_activations_at_layers(
+    model,
+    model_name: str,
+    dataset,
+    target_indices: np.ndarray,
+    layers: list,
+    device: torch.device,
+) -> dict:
+    """
+    Un forward pass por video, capturando activaciones mean-pooled en las
+    capas indicadas. Necesario para construir el null PCA.
+
+    Returns:
+        {layer_idx: np.array [N, D]}
+    """
+    storage = {}
+    hooks = []
+    for layer in layers:
+        def make_hook(l):
+            def fn(module, inp, out):
+                storage.setdefault(l, []).append(out.detach().cpu().mean(dim=1)[0].numpy())
+            return fn
+        hooks.append(model.blocks[layer].register_forward_hook(make_hook(layer)))
+
+    for idx in target_indices:
+        sample = dataset[idx]
+        if sample is None:
+            continue
+        frames = sample['frames'].unsqueeze(0).to(device)
+        with torch.no_grad():
+            if model_name == 'videomae':
+                B = frames.shape[0]
+                mask = torch.zeros(B, model.patch_embed.num_patches, dtype=torch.bool, device=device)
+                model(frames, mask=mask)
+            else:
+                model(frames)
+
+    for h in hooks:
+        h.remove()
+
+    return {layer: np.stack(storage[layer], axis=0) for layer in layers if layer in storage}
+
+
+def make_null_direction_results(direction_results: dict, null_type: str,
+                                acts_by_layer: dict = None, seed: int = 0) -> dict:
+    """
+    Crea direction_results nulos para comparación:
+      - 'random': vector Gaussiano aleatorio normalizado
+      - 'pca':    primer componente principal de las activaciones
+
+    Misma estructura que direction_results real para que corra en
+    run_directional_patching sin cambios.
+    """
+    rng = np.random.RandomState(seed)
+    null_results = {}
+    for layer, data in direction_results.items():
+        D = data['direction_vector'].shape[0]
+        if null_type == 'random':
+            vec = rng.randn(D)
+        elif null_type == 'pca' and acts_by_layer is not None and layer in acts_by_layer:
+            pca = PCA(n_components=1)
+            pca.fit(acts_by_layer[layer])
+            vec = pca.components_[0]
+        else:
+            vec = rng.randn(D)
+        vec = vec / (np.linalg.norm(vec) + 1e-8)
+        null_results[layer] = {**data, 'direction_vector': vec, 'pearson_r': 0.0}
+    return null_results
+
+
+def plot_null_comparison(
+    real_mono: dict, random_mono: dict, pca_mono: dict,
+    model_name: str, output_path: Path
+):
+    """
+    Barra comparativa de monotonicidad: real vs random vs PCA por capa.
+    Indica visualmente en qué capas el efecto causal es específico del
+    direction vector de velocidad (real >> random/pca).
+    """
+    try:
+        import matplotlib.pyplot as plt
+    except ImportError:
+        logger.warning("matplotlib no disponible, saltando gráfica de null comparison")
+        return
+
+    layers = sorted(real_mono.keys())
+    x = np.arange(len(layers))
+    w = 0.25
+
+    fig, ax = plt.subplots(figsize=(max(10, len(layers) * 0.5), 5))
+    ax.bar(x - w, [real_mono[l] for l in layers],   width=w, label='Real (speed vector)',  color='steelblue')
+    ax.bar(x,      [random_mono[l] for l in layers], width=w, label='Null — random vector', color='lightcoral', alpha=0.8)
+    ax.bar(x + w,  [pca_mono[l] for l in layers],    width=w, label='Null — PCA PC1',       color='mediumseagreen', alpha=0.8)
+
+    ax.set_xticks(x)
+    ax.set_xticklabels([f'L{l}' for l in layers], rotation=45)
+    ax.set_ylim(0, 1.1)
+    ax.axhline(0.7, color='gray', linestyle='--', linewidth=0.8, label='Umbral causal (0.7)')
+    ax.set_xlabel('Capa')
+    ax.set_ylabel('Monotonicidad [0, 1]')
+    ax.set_title(f'Null Experiments — {model_name.upper()}\n'
+                 f'Monotonicidad real vs. vectores control')
+    ax.legend(fontsize=9)
+    ax.grid(True, alpha=0.3, axis='y')
+
+    plt.tight_layout()
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    plt.savefig(output_path, dpi=150, bbox_inches='tight')
+    logger.info(f"Figura null comparison guardada: {output_path}")
+    plt.close()
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -378,6 +495,8 @@ def main():
     parser.add_argument('--device', default='cpu', choices=['cpu', 'cuda'])
     parser.add_argument('--output', type=str, default=None)
     parser.add_argument('--seed', type=int, default=42)
+    parser.add_argument('--null-experiments', action='store_true', default=False,
+                        help='Correr null experiments (random + PCA) para control estadístico')
     args = parser.parse_args()
 
     np.random.seed(args.seed)
@@ -484,6 +603,73 @@ def main():
 
     # 7. Gráficas
     plot_patching_results(patching_results, args.model, output_fig, args.alphas)
+
+    # 8. Null experiments
+    if args.null_experiments:
+        logger.info("\n" + "=" * 60)
+        logger.info("NULL EXPERIMENTS (control estadístico)")
+        logger.info("=" * 60)
+
+        # Recolectar activaciones en patch_layers para PCA
+        logger.info("Recolectando activaciones para null PCA...")
+        df = pd.read_csv(metadata_path)
+        dataset = VideoDataset(metadata_path, DATA_DIR, IMG_SIZE, NUM_FRAMES)
+        speeds_all = df['actual_speed'].values
+        low_thresh = np.percentile(speeds_all, 33)
+        high_thresh = np.percentile(speeds_all, 67)
+        target_mask = speeds_all <= low_thresh
+        target_indices = np.where(target_mask)[0]
+        np.random.shuffle(target_indices)
+        target_indices = target_indices[:args.n_videos]
+
+        acts_by_layer = collect_activations_at_layers(
+            model, args.model, dataset, target_indices, patch_layers, device
+        )
+
+        # Null random
+        null_random_dr = make_null_direction_results(direction_results, 'random', seed=args.seed)
+        logger.info("Corriendo patching con vector ALEATORIO...")
+        random_results = run_directional_patching(
+            model, args.model, null_random_dr, metadata_path, DATA_DIR,
+            patch_layers, final_layer, args.alphas, device,
+            speed_group=args.speed_group, n_videos=args.n_videos,
+        )
+        random_mono = compute_monotonicity(random_results)
+
+        # Null PCA
+        null_pca_dr = make_null_direction_results(direction_results, 'pca', acts_by_layer, seed=args.seed)
+        logger.info("Corriendo patching con vector PCA PC1...")
+        pca_results = run_directional_patching(
+            model, args.model, null_pca_dr, metadata_path, DATA_DIR,
+            patch_layers, final_layer, args.alphas, device,
+            speed_group=args.speed_group, n_videos=args.n_videos,
+        )
+        pca_mono = compute_monotonicity(pca_results)
+
+        # Comparación
+        logger.info(f"\n{'Capa':>6}  {'Real':>8}  {'Random':>8}  {'PCA':>8}  {'Veredicto':>12}")
+        logger.info("-" * 55)
+        for layer in sorted(mono_scores.keys()):
+            r = mono_scores[layer]
+            rnd = random_mono.get(layer, 0.0)
+            pca = pca_mono.get(layer, 0.0)
+            # Causal si real supera nulls por margen significativo
+            gap = r - max(rnd, pca)
+            verdict = "CAUSAL" if gap > 0.2 and r >= 0.7 else "DÉBIL" if gap > 0 else "NO CAUSAL"
+            logger.info(f"{layer:>6}  {r:>8.3f}  {rnd:>8.3f}  {pca:>8.3f}  {verdict:>12}")
+
+        # Guardar null results en el pkl
+        save_data['null_random_results'] = random_results
+        save_data['null_random_monotonicity'] = random_mono
+        save_data['null_pca_results'] = pca_results
+        save_data['null_pca_monotonicity'] = pca_mono
+        with open(output_pkl, 'wb') as f:
+            pickle.dump(save_data, f)
+        logger.info(f"\nNull results añadidos a: {output_pkl}")
+
+        # Gráfica comparativa
+        null_fig = FIGURES_DIR / f'null_comparison_{args.model}.png'
+        plot_null_comparison(mono_scores, random_mono, pca_mono, args.model, null_fig)
 
 
 if __name__ == '__main__':

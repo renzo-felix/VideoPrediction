@@ -47,7 +47,8 @@ python experiments/src/directional_patching.py \
     --alphas -3 -2 -1 0 1 2 3 \
     --n-videos 50 \
     --speed-group slow \
-    --device cuda
+    --device cuda \
+    --null-experiments
 
 # VideoMAE
 echo ""
@@ -61,7 +62,8 @@ python experiments/src/directional_patching.py \
     --alphas -3 -2 -1 0 1 2 3 \
     --n-videos 50 \
     --speed-group slow \
-    --device cuda
+    --device cuda \
+    --null-experiments
 
 echo ""
 echo "=== DONE: directional_patching_vjepa.pkl y _videomae.pkl guardados ==="
@@ -70,3 +72,6 @@ echo "Resultados clave a revisar en los logs:"
 echo "  - Monotonicidad perfecta (1.0) → causalidad FUERTE"
 echo "  - Monotonicidad >= 0.7        → causalidad PARCIAL"
 echo "  - Monotonicidad < 0.7         → no hay evidencia causal"
+echo ""
+echo "Null experiments guardados en figures/null_comparison_{vjepa,videomae}.png"
+echo "Veredicto CAUSAL = real supera random+PCA por margen > 0.2 y mono >= 0.7"
