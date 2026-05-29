@@ -1,0 +1,23 @@
+# Core Machine Learning & Deep Learning
+torch
+torchvision
+timm>=0.4.12
+einops
+
+# Video Simulation & Generation (PyBullet + OpenCV)
+pybullet
+numpy
+opencv-python
+pandas
+tqdm
+
+# Steering Analysis & Evaluation
+scikit-learn
+scipy
+
+# Optional/Visualization dependencies
+matplotlib
+seaborn
+wandb
+Pillow
+imageio

@@ -5,6 +5,9 @@ Extracting and testing steering vectors for concepts in video foundation models 
 ## Setup
 
 ```bash
+# For Khipu Cluster:
+module load miniconda/3.0
+conda create --name video python=3.10
 conda activate video
 pip install -r requirements.txt
 ```
@@ -12,15 +15,18 @@ pip install -r requirements.txt
 ## Quick Start
 
 ```bash
+# Make sure to use GPU
+module load cuda/11.8
+
 # 1. Generate training videos (135 videos: 3 sizes × 3 colors × 5 speeds × 3 reps)
 python src/generate_videos.py --mode training
 
 # 2. Generate test videos (compositionally novel objects)
-python src/generate_videos.py --mode test --category size
-python src/generate_videos.py --mode test --category color
-python src/generate_videos.py --mode test --category shape
-python src/generate_videos.py --mode test --category material
-python src/generate_videos.py --mode test --category texture
+python src/generate_videos.py --mode test --category size # Can the model distinguish speed independently of size ?
+python src/generate_videos.py --mode test --category color # Can the model distinguish speed independently of color ?
+python src/generate_videos.py --mode test --category shape # Can the model distinguish speed independently of shape ?
+python src/generate_videos.py --mode test --category material # Can the model distinguish speed independently of material ?
+python src/generate_videos.py --mode test --category texture # Can the model distinguish speed independently of texture ?
 
 # 3. Extract activations (layer 9 by default)
 python src/extract_activations.py --mode training --model vjepa

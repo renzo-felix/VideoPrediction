@@ -15,6 +15,17 @@ from data.pybullet_objects import create_object
 
 def generate_video(shape, size_scale, color_rgba, material_specular, texture_type, target_speed, output_path):
     p.connect(p.DIRECT)
+
+    # --- ACTIVATE GPU ACCELERATION IF WORKING GPU IS AVAILABLE ---
+    import os
+    import pkgutil
+    # Only load EGL if an NVIDIA GPU driver is active and communicating
+    if os.system("nvidia-smi > /dev/null 2>&1") == 0:
+        egl = pkgutil.get_loader('eglRenderer')
+        if egl:
+            p.loadPlugin(egl.get_filename(), "_eglRendererPlugin")
+    # -------------------------------------------------------------
+
     p.setAdditionalSearchPath(pybullet_data.getDataPath())
     p.setGravity(0, 0, -9.8)
     p.setTimeStep(1./240.)
